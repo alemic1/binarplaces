@@ -38,7 +38,8 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-bar-rating@1.2.2/jquery.barrating.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js" integrity="sha256-vyehT44mCOPZg7SbqfOZ0HNYXjPKgBCaqxBkW3lh6bg="
     crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
   <script src="date.js"></script>
@@ -46,6 +47,7 @@
   <script src="footer.js"></script>
   <script src="list.js"></script>
   <script src="chart.js"></script>
+  <script src="addRate.js"></script>
 
   <nav class="navbar navbar-default">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -108,14 +110,51 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          <h4 class="modal-title ratesModalTitle" id="myModalLabel">Modal title</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body ratesModalBody">
           ...
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRate">Dodaj Ocene</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="addRate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Dodaj ocene</h4>
+        </div>
+        <div class="modal-body">
+          <form id="addRateForm">
+            <div class="form-group">
+              <label for="user">Użytwkonik</label>
+              <input type="user" class="form-control" id="user" name="user" placeholder="Nazwa Uzytkowniak">
+              <br>
+              <label for="email">Adres email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="email">
+              <br>
+              <label for "date">Data</label>
+              <input type="text" class="form-control" id="datepicker">
+              <br>
+              <label for="rate">Ocena</label>
+              <input type="text" class="form-control" id="rate" name="rate" placeholder="ocena">
+              <br>
+              <label for="contentRate">Tresc</label>
+              <input type="text" class="form-control" id="contentRate" name="contentRate" placeholder="tresc">
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary">Wyślij</button>
         </div>
       </div>
     </div>

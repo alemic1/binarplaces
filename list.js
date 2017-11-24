@@ -61,8 +61,8 @@ $(window).on('hashchange', function(e) {
 });
 
 function createModal(local) {
-  $('.modal-title').html('Oceny dla lokalu ' + local.name);
-  $('.modal-body').html(
+  $('.ratesModalTitle').html('Oceny dla lokalu ' + local.name);
+  $('.ratesModalBody').html(
     '<table class="table rate"><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></table>');
   $.each(rates, (i,r)=>{
     $(".rate").append("<tr><td>" + r.username + "</td><td>" + r.rate + "</td><td>"+ r.created_at + "</td><td>" + r.text + "</td></tr>")

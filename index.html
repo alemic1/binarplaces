@@ -35,7 +35,7 @@
 
   <script src="navbar.js"></script>
   <script src="footer.js"></script>
-  <script src="tables.js"></script>
+  <script src="table.js"></script>
 
   <nav class="navbar navbar-default">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -57,17 +57,32 @@
   </nav>
 
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <ul class="nav nav-tabs" id="myTabs">
-          <li role="presentation" class="active"><a href="#">Lista</a></li>
-          <li role="presentation"><a href="#">Galeria</a></li>
-          <li role="presentation"><a href="#">Mapa</a></li>
+  <div class="container-fluid" style="height:300px;">
+    <div class=" row ">
+      <div class="col-md-8 ">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">Home</a></li>
+          <li role="presentation"><a href="#galery" aria-controls="galery" role="tab" data-toggle="tab">Profile</a></li>
+          <li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab">Messages</a></li>
         </ul>
 
+        <!-- Tab panes -->
+        <div class="tab-content ">
+          <div role="tabpanel " class="tab-pane active " id="list">
+            <table class="table locals">
+
+            </table>
+
+
+
+
+          </div>
+          <div role="tabpanel" class="tab-pane" id="galery">grafika</div>
+          <div role="tabpanel" class="tab-pane" id="map">mapa</div>
+        </div>
+
       </div>
-      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4 ">.col-md-4</div>
     </div>
 
   </div>

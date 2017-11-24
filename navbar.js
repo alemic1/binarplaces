@@ -7,15 +7,7 @@ var categories = [
   {id: 5, name: 'Bary', count: 2},
 ];
 
-var locals = [
-  {
-    id: 1,
-    name: 'aaa',
-    category_id: 1,
-    location: {adress: '', lat: 52.1, lng: 19.5},
-    rate: 4.5,
-  },
-];
+
 
 var categoriesSort = categories.sort((a, b) => {
   return b.count - a.count;

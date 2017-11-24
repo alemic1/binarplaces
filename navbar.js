@@ -1,14 +1,3 @@
-var categories = [
-  {id: 0, name: 'kuchania chinska', count: 10},
-  {id: 1, name: 'kuchania wietnamska', count: 3},
-  {id: 2, name: 'kuchania indyjska', count: 4},
-  {id: 3, name: 'Pizzerie', count: 10},
-  {id: 4, name: 'Kawiarnie', count: 6},
-  {id: 5, name: 'Bary', count: 2},
-];
-
-
-
 var categoriesSort = categories.sort((a, b) => {
   return b.count - a.count;
 });

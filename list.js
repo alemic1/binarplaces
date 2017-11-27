@@ -70,14 +70,35 @@ function createModal(local) {
     '<table class="table rate"><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></table>'
   );
   $.each(rates, (i, r) => {
+    var date = r.created_at.split('-').reverse();
+    var now = moment().format('YYYY-MM-DD').split('-');
+    var diffDays = moment(now).diff(date, 'days');
+    var diffMonths = moment(now).diff(date, 'month');
+    var diffYears = moment(now).diff(date, 'year');
+    var message = '';
+    if (diffDays == 1) {
+      message = 'wczoraj';
+    } else if (diffDays < 30) {
+      message = diffDays + ' dni temu';
+    } else if (diffMonths == 1) {
+      message = 'miesiac temu';
+    } else if (diffMonths < 12) {
+      message = diffMonths + ' miesiecy temu';
+    } else if (diffYears == 1) {
+      message = 'rok temu';
+    } else {
+      message = diffYears + ' lata temu';
+    }
     $('.rate').append(
       '<tr><td>' +
         r.username +
         '</td><td>' +
         r.rate +
-        '</td><td>' +
+        '</td><td><span  data-toggle="tooltip" data-placement="bottom" title="' +
+        message +
+        '">' +
         r.created_at +
-        '</td><td>' +
+        '</span></td><td>' +
         r.text +
         '</td></tr>'
     );

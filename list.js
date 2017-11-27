@@ -1,5 +1,9 @@
 function chceckIdCategory() {
-  return $(location).attr('href').split('#')[1].split('%')[0];
+  var splitOne = $(location).attr('href').split('#');
+  if (splitOne[1] != null) splitOne = splitOne[1].split('%')[0];
+  else splitOne = -1;
+
+  return splitOne;
 }
 
 function makingStars(val) {
@@ -12,7 +16,7 @@ function makingStars(val) {
 }
 
 function showCategory() {
-  if (id != '')
+  if (id != -1)
     var localsToShow = locals
       .filter(l => {
         return l.category_id === id;
@@ -63,9 +67,19 @@ $(window).on('hashchange', function(e) {
 function createModal(local) {
   $('.ratesModalTitle').html('Oceny dla lokalu ' + local.name);
   $('.ratesModalBody').html(
-    '<table class="table rate"><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></table>');
-  $.each(rates, (i,r)=>{
-    $(".rate").append("<tr><td>" + r.username + "</td><td>" + r.rate + "</td><td>"+ r.created_at + "</td><td>" + r.text + "</td></tr>")
-  })
-  
+    '<table class="table rate"><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></table>'
+  );
+  $.each(rates, (i, r) => {
+    $('.rate').append(
+      '<tr><td>' +
+        r.username +
+        '</td><td>' +
+        r.rate +
+        '</td><td>' +
+        r.created_at +
+        '</td><td>' +
+        r.text +
+        '</td></tr>'
+    );
+  });
 }

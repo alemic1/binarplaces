@@ -7,8 +7,6 @@ $(document).ready(function() {
     date[Math.round(l.rate) - 1]++;
   });
 
-  console.log(date);
-
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {

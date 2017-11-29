@@ -1,20 +1,44 @@
 <!doctype html>
-<html>
+<html lang="pl">
 
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <!-- Latest compiled and minified CSS -->
+
+  <link rel="stylesheet" href="style.css">
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
-
-  <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
     crossorigin="anonymous">
-
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" integrity="sha256-i6N2FjiALCyH7H0pVVd5Ut+9oJ9CJ2t/25aELbdW2xg="
+    crossorigin="anonymous" />
+
   <link rel="stylesheet" href="fontawesome-stars-o.css">
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-bar-rating@1.2.2/jquery.barrating.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js" integrity="sha256-vyehT44mCOPZg7SbqfOZ0HNYXjPKgBCaqxBkW3lh6bg="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.js" integrity="sha256-+MIG033MJxA4oksYM/oHr9wvXDbJtAwACQ5cB+LHzqg="
+    crossorigin="anonymous"></script>
+
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k&sensor=false"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" integrity="sha256-i6N2FjiALCyH7H0pVVd5Ut+9oJ9CJ2t/25aELbdW2xg="
+    crossorigin="anonymous" />
+
+  <script src="date.js"></script>
+  <script src="categoriesChoos.js"></script>
 
   <title>BinarPlaces</title>
 
@@ -22,32 +46,12 @@
 </head>
 
 <body>
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-bar-rating@1.2.2/jquery.barrating.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js" integrity="sha256-vyehT44mCOPZg7SbqfOZ0HNYXjPKgBCaqxBkW3lh6bg="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-  <script src="date.js"></script>
   <script src="navbar.js"></script>
   <script src="footer.js"></script>
   <script src="list.js"></script>
   <script src="chart.js"></script>
   <script src="addRate.js"></script>
+  <script src="map.js"></script>
 
   <nav class="navbar navbar-default">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -69,13 +73,14 @@
   </nav>
 
 
-  <div class="container-fluid" style="height:300px;">
+  <div class="container-fluid">
     <div class=" row ">
       <div class="col-md-8 ">
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">List</a></li>
-          <li role="presentation"><a href="#galery" aria-controls="galery" role="tab" data-toggle="tab">Galery</a></li>
-          <li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab">Map</a></li>
+          <li role="presentation"><a href="#galery" aria-controls="galery" role="tab" data-toggle="tab">Galeria</a>
+          </li>
+          <li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" onclick="initMap">Map</a></li>
         </ul>
 
         <!-- Tab panes -->
@@ -84,13 +89,15 @@
             <table class="table locals">
 
             </table>
-
-
-
+          </div>
+          <div role="tabpanel" class="tab-pane" id="galery">
+            <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>
 
           </div>
-          <div role="tabpanel" class="tab-pane" id="galery">grafika</div>
-          <div role="tabpanel" class="tab-pane" id="map">mapa</div>
+
+          <div role="tabpanel" class="tab-pane" id="map">
+            <div id="myMap"></div>
+          </div>
         </div>
 
       </div>
@@ -162,6 +169,9 @@
 
 
   <footer/>
+
+
+
 </body>
 
 </html>

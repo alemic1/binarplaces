@@ -1,38 +1,38 @@
-var categoriesSort = categories.sort((a, b) => {
+var categoriesSort = categories.sort(function(a, b) {
   return b.count - a.count;
 });
 
-var tmp = 0;
+var categoryFiveCounter = 0;
 
-var firstFiveCategory = categoriesSort.filter(c => {
-  tmp++;
-  return tmp <= 5;
+var firstFiveCategory = categoriesSort.filter(function(category) {
+  categoryFiveCounter++;
+  return categoryFiveCounter <= 5;
 });
-var tmp1 = 0;
-var inne = categoriesSort.filter(c => {
-  tmp1++;
-  return tmp1 > 5;
+var categoryDropdownCounter = 0;
+var categoryInDropdown = categoriesSort.filter(function(category) {
+  categoryDropdownCounter++;
+  return categoryDropdownCounter > 5;
 });
 
-var navbarCategory = firstFiveCategory.map(c => {
+var navbarCategory = firstFiveCategory.map(function(category) {
   return (
     '<p class="navbar-text "><a class="navbar-link" href="#' +
-    c.id +
+    category.id +
     ' ">' +
-    c.name +
+    category.name +
     '</a></p> '
   );
 });
 
-var navbarDropMenu = inne.map(c => {
-  return '<li><a href="#' + c.id + '">' + c.name + '</a></li>';
+var navbarDropMenu = categoryInDropdown.map(function(category) {
+  return '<li><a href="#' + category.id + '">' + category.name + '</a></li>';
 });
 
 $(document).ready(function() {
-  $.each(navbarCategory, (i, c) => {
-    $('.links').append(c);
+  $.each(navbarCategory, function(index, category) {
+    $('.links').append(category);
   });
-  $.each(navbarDropMenu, (i, c) => {
-    $('.dropdown-menu').append(c);
+  $.each(navbarDropMenu, function(index, category) {
+    $('.dropdown-menu').append(category);
   });
 });

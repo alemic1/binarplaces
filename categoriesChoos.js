@@ -5,11 +5,13 @@ $(document).ready(function() {
   idChoosenCategory = splittedLocationHash();
   restaurantsToShow = inicializeRestaurantToShow();
   showCategory();
-  initMap();
   moment.locale('pl');
-  $('.singInButton').on('click', function(){
+  $('.singInButton').on('click', function() {
     $('.singInModal').modal('show');
-  })
+  });
+  $('#linkMap').on('click', function() {
+    initMap();
+  });
 });
 
 $(window).on('hashchange', function(e) {

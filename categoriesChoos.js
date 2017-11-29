@@ -7,6 +7,9 @@ $(document).ready(function() {
   showCategory();
   initMap();
   moment.locale('pl');
+  $('.singInButton').on('click', function(){
+    $('.singInModal').modal('show');
+  })
 });
 
 $(window).on('hashchange', function(e) {

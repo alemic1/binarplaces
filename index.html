@@ -72,6 +72,7 @@
           <ul class="dropdown-menu">
 
           </ul>
+
         </li>
       </ul>
     </div>
@@ -79,6 +80,9 @@
 
 
   <div class="container-fluid">
+    <div class="pull-right">
+      <span class="singInButton"> Sing In </span>/ <span class="singUpButton">Sing Up</span>
+    </div>
     <div class=" row ">
       <div class="col-md-8 ">
         <ul class="nav nav-tabs" role="tablist">
@@ -173,6 +177,65 @@
     </div>
   </div>
 
+  <div class="modal fade" id="singInModal" tabindex="-1" role="dialog" aria-labelledby="singInModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="singInModal">Zaloguj się</h4>
+        </div>
+        <div class="modal-body">
+          <form id="singInForm">
+            <div class="form-group">
+              <label for="email">Adres email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="email">
+              <br>
+              <label for "date">Hasło</label>
+              <input type="text" class="form-control" id="password" name="password" placeholder="haslo">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Zaloguj się</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="singUpModal" tabindex="-1" role="dialog" aria-labelledby="singUpModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="singUpModal">Zajerestruj się</h4>
+        </div>
+        <div class="modal-body">
+          <form id="singUpForm">
+            <div class="form-group">
+              <label for="user">Nazwa użytkownika</label>
+              <input type="text" class="form-control" id="user" name="user" placeholder="Nazwa Uzytkowniak">
+              <br>
+              <label for="email">Adres email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="email">
+              <br>
+              <label for "date">Hasło</label>
+              <input type="text" class="form-control" id="password" name="password" placeholder="haslo">
+              <br>
+              <label for "date">Potwierdź hasło</label>
+              <input type="text" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="potwierdz haslo">
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Wyślij</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

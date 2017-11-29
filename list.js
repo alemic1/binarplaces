@@ -40,25 +40,10 @@ function createModal(restaurant) {
   );
   $.each(rates, function(index, rate) {
     var date = rate.created_at.split('-').reverse();
-    var now = moment().format('YYYY-MM-DD').split('-');
-    var diffDays = moment(now).diff(date, 'days'),
-      diffMonths = moment(now).diff(date, 'month'),
-      diffYears = moment(now).diff(date, 'year'),
-      message = '';
+    message = moment(date).toNow();
+    console.log(date);
+    console.log(moment().format('YYYY-MM-DD'));
 
-    if (diffDays == 1) {
-      message = 'wczoraj';
-    } else if (diffDays < 30) {
-      message = diffDays + ' dni temu';
-    } else if (diffMonths == 1) {
-      message = 'miesiac temu';
-    } else if (diffMonths < 12) {
-      message = diffMonths + ' miesiecy temu';
-    } else if (diffYears == 1) {
-      message = 'rok temu';
-    } else {
-      message = diffYears + ' lata temu';
-    }
     $('.rate').append(
       '<tr><td>' +
         rate.username +

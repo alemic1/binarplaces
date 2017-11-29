@@ -6,9 +6,14 @@ $(document).ready(function() {
   restaurantsToShow = inicializeRestaurantToShow();
   showCategory();
   moment.locale('pl');
-  $('.singInButton').on('click', function() {
-    $('.singInModal').modal('show');
+  $('#singInButton').on('click', function() {
+    $('#singInModal').modal('show');
   });
+
+  $('#singUpButton').on('click', function() {
+    $('#singUpModal').modal('show');
+  });
+
   $('#linkMap').on('click', function() {
     initMap();
   });

@@ -50,3 +50,18 @@ var rates = [
   {id: 1, username: 'imie1 nazwisko', rate: 3, created_at: date2, text: 'ok'},
   {id: 2, username: 'imie2 nazwisko', rate: 3, created_at: date3, text: 'ok'},
 ];
+
+function getCategories(json) {
+  console.log(json);
+}
+
+inizializeRequest(
+  '/places',
+  {},
+  'GET',
+  function(json) {
+    console.log(json);
+  },
+  function() {},
+  function() {}
+);

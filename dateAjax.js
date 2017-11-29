@@ -21,24 +21,26 @@ var restaurantReviewsUrl = '/places/:id/reviews'; //get - pobiera post -tworzy
 function inizializeRequest(
   url,
   data,
-  type,
+  typeget,
   doneFunction,
   failFunction,
   alwaysFunction
 ) {
   $.ajax({
-    url: ` ${url}`,
+    url: `http://binar-taste-api-staging.builder01.binarapps.com/api/v1${url}`,
     data: data,
-    type: `${type}`,
+    type: typeget,
+    crossDomain: true,
     dataType: 'json',
-  })
-    .done(function(json) {
-      doneFunction();
-    })
-    .fail(function(xhr, status, errorThrown) {
-      failFunction();
-    })
-    .always(function(xhr, status) {
-      alwaysFunction();
-    });
+
+    headers: {
+      'Cache-Control': 'max-age=1000',
+    },
+    error: function(response) {
+      console.log('error' + response);
+    },
+    success: function(response) {
+      console.log(response); // server response
+    },
+  });
 }

@@ -6,12 +6,9 @@ $(document).ready(function() {
   restaurantsToShow = inicializeRestaurantToShow();
   showCategory();
   moment.locale('pl');
-  
-
   $('#linkMap').on('click', function() {
     initMap();
   });
-
 });
 
 $(window).on('hashchange', function(e) {

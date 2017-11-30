@@ -1,14 +1,20 @@
-var restaurantsToShow = inicializeRestaurantToShow();
+var restaurantsToShow;
 var idChoosenCategory = '';
 
+if (resIsOk) {
+  inicializeRestaurantToShow();
+}
+
 $(document).ready(function() {
-  idChoosenCategory = splittedLocationHash();
-  restaurantsToShow = inicializeRestaurantToShow();
-  showCategory();
-  moment.locale('pl');
-  $('#linkMap').on('click', function() {
-    initMap();
-  });
+  if (resIsOk) {
+    idChoosenCategory = splittedLocationHash();
+    restaurantsToShow = inicializeRestaurantToShow();
+    showCategory();
+    moment.locale('pl');
+    $('#linkMap').on('click', function() {
+      initMap();
+    });
+  }
 });
 
 $(window).on('hashchange', function(e) {

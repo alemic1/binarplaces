@@ -5,6 +5,7 @@ function inizializeRequest(url, data, typeget, successFunction, errorFunction) {
     type: typeget,
     crossDomain: true,
     dataType: 'json',
+    async: false,
     headers: {
       'Cache-Control': 'max-age=1000',
     },
@@ -12,7 +13,7 @@ function inizializeRequest(url, data, typeget, successFunction, errorFunction) {
       errorFunction(response);
     },
     success: function(response) {
-      successFunction(response); // server response
+      successFunction(response);
     },
   });
 }

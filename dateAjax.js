@@ -17,22 +17,3 @@ POST /places - dodawanie lokalu, wymaga zalogowania
 
 var restaurantUrl = '/places/:id'; //
 var restaurantReviewsUrl = '/places/:id/reviews'; //get - pobiera post -tworzy
-
-function inizializeRequest(url, data, typeget, doneFunction, errorFunction) {
-  $.ajax({
-    url: `http://binar-taste-api-staging.builder01.binarapps.com/api/v1${url}`,
-    data: data,
-    type: typeget,
-    crossDomain: true,
-    dataType: 'json',
-    headers: {
-      'Cache-Control': 'max-age=1000',
-    },
-    error: function(response) {
-      console.log('error' + response);
-    },
-    success: function(response) {
-      doneFunction(response);
-    },
-  });
-}

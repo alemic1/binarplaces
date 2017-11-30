@@ -1,16 +1,14 @@
 function getAllRestaurants() {
-  var restaurantAllResponse;
   inizializeRequest(
     restaurantsUrl,
     {},
     'GET',
     function(response) {
-      restaurantAllResponse = response;
+      restaurants = response;
+      resIsOk = true;
     },
     function(response) {}
   );
-
-  return restaurantAllResponse;
 }
 
 function addNewRestaurant(name, category_id, adress, lat, lng) {

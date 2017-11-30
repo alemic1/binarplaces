@@ -1,37 +1,7 @@
-var restaurants = [
-  {
-    id: 1,
-    name: 'local1',
-    category_id: '1',
-    location: {adress: 'adres local1', lat: 51.768766, lng: 19.455707},
-    rate: 4.5,
-  },
+getAllRestaurants();
+getAllCategories();
 
-  {
-    id: 2,
-    name: 'local2',
-    category_id: '0',
-    location: {adress: 'ades local2', lat: 51.769897, lng: 19.448322},
-    rate: 4.5,
-  },
-
-  {
-    id: 3,
-    name: 'local3',
-    category_id: '3',
-    location: {adress: 'adres local3', lat: 51.775697, lng: 19.445487},
-    rate: 2.5,
-  },
-
-  {
-    id: 4,
-    name: 'local4',
-    category_id: '3',
-    location: {adress: 'adres local 4', lat: 52.1, lng: 19.5},
-    rate: 4.5,
-  },
-];
-
+/*
 var categories = [
   {id: 0, name: 'kuchania chinska', count: 10},
   {id: 1, name: 'kuchania wietnamska', count: 3},
@@ -54,14 +24,4 @@ var rates = [
 function getCategories(json) {
   console.log(json);
 }
-
-inizializeRequest(
-  '/places',
-  {},
-  'GET',
-  function(json) {
-    console.log(json);
-  },
-  function() {},
-  function() {}
-);
+*/

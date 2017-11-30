@@ -40,9 +40,9 @@ function createModal(restaurant) {
   );
   $.each(rates, function(index, rate) {
     var date = rate.created_at.split('-').reverse();
-    message = moment(date).toNow();
-    console.log(date);
-    console.log(moment().format('YYYY-MM-DD'));
+    date[1]--;
+    message = moment(date).fromNow();
+
 
     $('.rate').append(
       '<tr><td>' +

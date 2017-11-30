@@ -3,8 +3,12 @@
 }
 
 #myMap {
-  height: 40vw;
+  height: 20vw;
   width: 100%;
+}
+
+.singInSingUp {
+  float: right;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 

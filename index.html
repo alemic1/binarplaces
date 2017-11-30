@@ -32,6 +32,8 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.js" integrity="sha256-+MIG033MJxA4oksYM/oHr9wvXDbJtAwACQ5cB+LHzqg="
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/locale/pl.js" integrity="sha256-+ZhowI7vT/wSRoiVJ2P76g2Eg/qfWOASyf+0iRfNjyM="
+    crossorigin="anonymous"></script>
 
 
   <script src="date.js"></script>
@@ -59,30 +61,30 @@
   <script src="addRate.js"></script>
 
   <nav class="navbar navbar-default">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav links">
-        <li>
-          <p class="navbar-text "><a href="" class="navbar-link">Wszystkie</a></p>
-        </li>
-      </ul>
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav links">
+          <li class="navbarLinks">
+            <p class="navbar-text "><a href="" class="navbar-link">Wszystkie</a></p>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inne <span class="caret"></span></a>
+            <ul class="dropdown-menu"></ul>
+          </li>
+        </ul>
+        <ul class="navbar-right">
+          <li class="singInSingUp navbar-text navbar-right">
+            <span id="singInButton"> Sing In </span>/ <span id="singUpButton">Sing Up</span>
+          </li>
+        </ul>
 
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inne <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-
-          </ul>
-
-        </li>
-      </ul>
+      </div>
     </div>
   </nav>
 
 
   <div class="container-fluid">
-    <div class="singInSingUp">
-      <span id="singInButton"> Sing In </span>/ <span id="singUpButton">Sing Up</span>
-    </div>
+
     <div class=" row ">
       <div class="col-md-8 ">
         <ul class="nav nav-tabs" role="tablist">

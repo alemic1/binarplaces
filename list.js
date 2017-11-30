@@ -43,7 +43,6 @@ function createModal(restaurant) {
     date[1]--;
     message = moment(date).fromNow();
 
-
     $('.rate').append(
       '<tr><td>' +
         rate.username +

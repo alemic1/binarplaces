@@ -39,7 +39,7 @@ var navbarDropMenu = categoryInDropdown().map(function(category) {
 
 $(document).ready(function() {
   $.each(navbarCategory, function(index, category) {
-    $('.links').append(category);
+    $('.navbarLinks').append(category);
   });
   $.each(navbarDropMenu, function(index, category) {
     $('.dropdown-menu').append(category);

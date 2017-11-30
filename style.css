@@ -1,4 +1,7 @@
-* {
-    box-sizing: border-box;
-}
+@import 'rest.css';
+@import 'map.css';
+@import 'galery.css';
 
+* {
+  box-sizing: border-box;
+}

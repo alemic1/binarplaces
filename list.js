@@ -1,12 +1,4 @@
-function chceckIdCategory() {
-  var splitOne = $(location).attr('href').split('#');
-  if (splitOne[1] != null) splitOne = splitOne[1].split('%')[0];
-  else splitOne = -1;
-
-  return splitOne;
-}
-
-function makingStars(val) {
+function initializeStarRating(val) {
   $('.stars').barrating({
     theme: 'fontawesome-stars-o',
     initialRating: val,
@@ -16,90 +8,53 @@ function makingStars(val) {
 }
 
 function showCategory() {
-  if (id != -1)
-    var localsToShow = locals
-      .filter(l => {
-        return l.category_id === id;
-      })
-      .sort((a, b) => {
-        return b.rate - a.rate;
-      });
-  else
-    var localsToShow = locals.sort((a, b) => {
-      return b.rate - a.rate;
-    });
-
-  if (localsToShow.length == 0) $('#list').html('Brak lokali w tej kategorii');
-  else {
+  if (restaurantsToShow.length == 0) {
+    $('#list').html('Brak lokali w tej kategorii');
+  } else {
     $('#list').html(
-      '<table class="table locals"><th>Nazwa</th><th>Adress</th><th>Oceny</th></table>'
+      '<table class="table restaurants"><th>Nazwa</th><th>Adress</th><th>Oceny</th></table>'
     );
-    $.each(localsToShow, (i, l) => {
-      $('.locals').append(
+    $.each(restaurantsToShow, function(index, restaurant) {
+      $('.restaurants').append(
         '<tr><td>' +
-          l.name +
+          restaurant.name +
           '</td><td>' +
-          l.location.adress +
-          '</td><td><div class="stars1"><select class="stars" ><option value="1">1</option> <option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div></td></tr>'
+          restaurant.location.adress +
+          '</td><td><div class="stars1" data-toggle="tooltip" data-placement="left" title="' +
+          restaurant.rate +
+          '"><select class="stars" ><option value="1">1</option> <option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div></td></tr>'
       );
-      makingStars(l.rate);
+      initializeStarRating(restaurant.rate);
       $('.stars1').on('click', function() {
         $('#myModal').modal('show');
-        createModal(l);
+        createModal(restaurant);
       });
     });
   }
 }
 
-var id = '';
-
-$(document).ready(function() {
-  id = chceckIdCategory();
-
-  showCategory();
-});
-
-$(window).on('hashchange', function(e) {
-  id = chceckIdCategory();
-  showCategory();
-});
-
-function createModal(local) {
-  $('.ratesModalTitle').html('Oceny dla lokalu ' + local.name);
+function createModal(restaurant) {
+  $('.ratesModalTitle').html('Oceny dla lokalu ' + restaurant.name);
   $('.ratesModalBody').html(
     '<table class="table rate"><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></table>'
   );
-  $.each(rates, (i, r) => {
-    var date = r.created_at.split('-').reverse();
-    var now = moment().format('YYYY-MM-DD').split('-');
-    var diffDays = moment(now).diff(date, 'days');
-    var diffMonths = moment(now).diff(date, 'month');
-    var diffYears = moment(now).diff(date, 'year');
-    var message = '';
-    if (diffDays == 1) {
-      message = 'wczoraj';
-    } else if (diffDays < 30) {
-      message = diffDays + ' dni temu';
-    } else if (diffMonths == 1) {
-      message = 'miesiac temu';
-    } else if (diffMonths < 12) {
-      message = diffMonths + ' miesiecy temu';
-    } else if (diffYears == 1) {
-      message = 'rok temu';
-    } else {
-      message = diffYears + ' lata temu';
-    }
+  $.each(rates, function(index, rate) {
+    var date = rate.created_at.split('-').reverse();
+    date[1]--;
+    message = moment(date).fromNow();
+
+
     $('.rate').append(
       '<tr><td>' +
-        r.username +
+        rate.username +
         '</td><td>' +
-        r.rate +
+        rate.rate +
         '</td><td><span  data-toggle="tooltip" data-placement="bottom" title="' +
         message +
         '">' +
-        r.created_at +
+        rate.created_at +
         '</span></td><td>' +
-        r.text +
+        rate.text +
         '</td></tr>'
     );
   });

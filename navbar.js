@@ -16,7 +16,7 @@ var categoryInDropdown = categoriesSort.filter(function(category) {
 
 var navbarCategory = firstFiveCategory.map(function(category) {
   return (
-    '<p class="navbar-text "><a class="navbar-link" href="#' +
+    '<p class="navbar-text text-capitalize"><a class="navbar-link" href="#' +
     category.id +
     ' ">' +
     category.name +
@@ -24,15 +24,34 @@ var navbarCategory = firstFiveCategory.map(function(category) {
   );
 });
 
+var navbarDropTop5 = firstFiveCategory.map(function(category) {
+  return (
+    '<li><a class="text-capitalize" href="#' +
+    category.id +
+    '">' +
+    category.name +
+    '</a></li>'
+  );
+});
+
 var navbarDropMenu = categoryInDropdown.map(function(category) {
-  return '<li><a href="#' + category.id + '">' + category.name + '</a></li>';
+  return (
+    '<li><a class="text-capitalize" href="#' +
+    category.id +
+    '">' +
+    category.name +
+    '</a></li>'
+  );
 });
 
 $(document).ready(function() {
   $.each(navbarCategory, function(index, category) {
     $('.navbarLinks').append(category);
   });
+  $.each(navbarDropTop5, function(index, category) {
+    $('.top5').append(category);
+  });
   $.each(navbarDropMenu, function(index, category) {
-    $('.dropdown-menu').append(category);
+    $('.notTop5').append(category);
   });
 });

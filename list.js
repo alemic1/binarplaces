@@ -12,7 +12,7 @@ function showCategory() {
     $('#list').html('Brak lokali w tej kategorii');
   } else {
     $('#list').html(
-      '<table class="table restaurants"><th>Nazwa</th><th>Adress</th><th>Oceny</th></table>'
+      '<div class="table-responsive "><table class="table table-striped"><thead><tr><th>Nazwa</th><th>Adress</th><th>Oceny</th></tr></thead><tbody class="restaurants"></tbody></table></div>'
     );
     $.each(restaurantsToShow, function(index, restaurant) {
       $('.restaurants').append(
@@ -36,14 +36,11 @@ function showCategory() {
 function createModal(restaurant) {
   $('.ratesModalTitle').html('Oceny dla lokalu ' + restaurant.name);
   $('.ratesModalBody').html(
-    '<table class="table rate"><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></table>'
+    '<table class="table"><thead><tr><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></tr></thead><tbody class="rate"></tbody></table>'
   );
   $.each(rates, function(index, rate) {
     var date = rate.created_at.split('-').reverse();
     message = moment(date).toNow();
-    console.log(date);
-    console.log(moment().format('YYYY-MM-DD'));
-
     $('.rate').append(
       '<tr><td>' +
         rate.username +

@@ -11,29 +11,17 @@
   float: right;
 }
 
-@media only screen and (min-width: 769px) {
-  .dropdownTop5 {
-    display: none;
-  }
+@media (min-width: 769px) {
   .navbarLinks {
-    display: block;
+    display: block !important;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .navbarLinks {
-    display: none;
-  }
-  .top5 {
-    display: block;
-  }
+@media (max-width: 768px) {
 }
 
-@media only screen and (max-width: 460px) {
+@media (max-width: 460px) {
   .navbarLinks {
-    display: none;
-  }
-  .top5 {
-    display: block;
+    display: none !important;
   }
 }

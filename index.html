@@ -34,24 +34,31 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/locale/pl.js" integrity="sha256-+ZhowI7vT/wSRoiVJ2P76g2Eg/qfWOASyf+0iRfNjyM="
     crossorigin="anonymous"></script>
-
-
-  <script src="date.js"></script>
-  <script src="categoriesChoos.js"></script>
-  <script src="map.js"></script>
-
-
-
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k&sensor=false"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" integrity="sha256-i6N2FjiALCyH7H0pVVd5Ut+9oJ9CJ2t/25aELbdW2xg="
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" integrity="sha256-p6xU9YulB7E2Ic62/PX+h59ayb3PBJ0WFTEQxq0EjHw="
     crossorigin="anonymous" />
 
 
+  <script src="variables.js"></script>
+  <script src="dataAjax.js"></script>
+  <script src="railsApi.js"></script>
+  <script src="categoriesActions.js"></script>
+  <script src="restaurantActions.js"></script>
+  <script src="sessionAction.js"></script>
+
+  <script src="date.js"></script>
+
+  <script src="map.js"></script>
+  <script src="categoriesChoos.js"></script>
+
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" integrity="sha256-i6N2FjiALCyH7H0pVVd5Ut+9oJ9CJ2t/25aELbdW2xg="
+    crossorigin="anonymous" />
 
   <title>BinarPlaces</title>
 
 
 </head>
+
 
 <body>
   <script src="navbar.js"></script>
@@ -61,12 +68,13 @@
   <script src="addRate.js"></script>
   <script src="singIn.js"></script>
 
+
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav links">
           <li class="navbarLinks">
-            <p class="navbar-text "><a href="" class="navbar-link">Wszystkie</a></p>
+            <p class="navbar-text "><a href="#" class="navbar-link">Wszystkie</a></p>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inne <span class="caret"></span></a>
@@ -85,7 +93,6 @@
 
 
   <div class="container-fluid">
-
     <div class=" row ">
       <div class="col-md-8 ">
         <ul class="nav nav-tabs" role="tablist">
@@ -98,13 +105,13 @@
         <!-- Tab panes -->
         <div class="tab-content ">
           <div role="tabpanel " class="tab-pane active " id="list">
-            <table class="table locals">
 
-            </table>
           </div>
           <div role="tabpanel" class="tab-pane" id="galery">
-            <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>
+            <div class="galery">
+              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>              <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>
 
+            </div>
           </div>
 
           <div role="tabpanel" class="tab-pane" id="map">
@@ -200,7 +207,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Zaloguj się</button>
+          <button type="button" class="btn btn-primary singIn">Zaloguj się</button>
         </div>
       </div>
     </div>

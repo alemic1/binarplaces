@@ -3,15 +3,13 @@ $(document).ready(function() {
   var $SingInModal = $('#singInModal');
   var $SingUpButton = $('#singUpButton');
   var $SingUpModal = $('#singUpModal');
-  var $SingInSingUp = $('#singInSingUp');
+  var $SingInSingUpSection = $('.singInSingUp');
+  var $SingIn = $('.singIn');
 
   var $AddRateButton = $('.addRateButton');
 
   $SingInButtom.on('click', function() {
     $SingInModal.modal('show');
-    localStorage.setItem('auth_token', 'aa');
-    localStorage.setItem('email', 'aaaa@ccc');
-    location.reload();
   });
 
   $SingUpButton.on('click', function() {
@@ -19,7 +17,7 @@ $(document).ready(function() {
   });
 
   if (localStorage.auth_token != undefined && localStorage.auth_token != '') {
-    $SingInSingUp.html(
+    $SingInSingUpSection.html(
       '<p>Jestes zalogowany jako ' +
         localStorage.email +
         '   <span class="singOut">Wyloguj sie</span></p>'
@@ -33,4 +31,9 @@ $(document).ready(function() {
   } else {
     $AddRateButton.prop('disabled', 'disabled');
   }
+  $SingIn.on('click', function() {
+    localStorage.setItem('auth_token', 'aa');
+    localStorage.setItem('email', 'aaaa@ccc');
+    location.reload();
+  });
 });

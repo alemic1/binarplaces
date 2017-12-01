@@ -14,31 +14,3 @@ POST /places - add restaurans, need to be logged
         no response (201)
 
 */
-
-var restaurantUrl = '/places/:id'; //
-var restaurantReviewsUrl = '/places/:id/reviews';
-
-function inizializeRequest(
-  url,
-  data,
-  type,
-  doneFunction,
-  failFunction,
-  alwaysFunction
-) {
-  $.ajax({
-    url: ` ${url}`,
-    data: data,
-    type: `${type}`,
-    dataType: 'json',
-  })
-    .done(function(json) {
-      doneFunction();
-    })
-    .fail(function(xhr, status, errorThrown) {
-      failFunction();
-    })
-    .always(function(xhr, status) {
-      alwaysFunction();
-    });
-}

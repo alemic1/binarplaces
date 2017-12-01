@@ -1,12 +1,14 @@
 function getAllCategories() {
+  var categoriesResponde;
   inizializeRequest(
     categoriesUrl,
     {},
     'GET',
     function(response) {
-      categories = response;
+      categoriesResponde = response;
       categoriesIsDownload = true;
     },
     function() {}
   );
+  return categoriesResponde;
 }

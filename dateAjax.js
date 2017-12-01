@@ -14,6 +14,3 @@ POST /places - add restaurans, need to be logged
         no response (201)
 
 */
-
-var restaurantUrl = '/places/:id'; //
-var restaurantReviewsUrl = '/places/:id/reviews'; //get - pobiera post -tworzy

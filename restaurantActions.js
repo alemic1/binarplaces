@@ -1,14 +1,15 @@
 function getAllRestaurants() {
+  var responseTestaurants;
   inizializeRequest(
     restaurantsUrl,
     {},
     'GET',
     function(response) {
-      restaurants = response;
-      resIsOk = true;
+      responseTestaurants = response;
     },
     function(response) {}
   );
+  return responseTestaurants;
 }
 
 function addNewRestaurant(name, category_id, adress, lat, lng) {
@@ -39,9 +40,24 @@ function addNewRestaurant(name, category_id, adress, lat, lng) {
 
 function getRestaurant(id) {
   var url = restaurantsUrl + '/' + id;
+
   var restaurant;
 }
 
-function getRevieRestURANT(id) {
-  var url = restaurantsUrl + '/' + id + 'review';
+function getRevieRestaurantReviews(id) {
+  var url = restaurantsUrl + '/' + id + '/reviews';
+  var reviews;
+  inizializeRequest(
+    url,
+    {},
+    'GET',
+    function(response) {
+      reviews = response;
+    },
+    function(response) {
+      console.log(response);
+    }
+  );
+
+  return reviews;
 }

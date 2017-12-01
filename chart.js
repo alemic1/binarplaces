@@ -38,7 +38,7 @@ $(document).ready(function() {
   });
 
   var dateCategory = categories.map(function(category) {
-    return category.count;
+    return category.places_count;
   });
 
   var myChart = new Chart(categoriesChart, {

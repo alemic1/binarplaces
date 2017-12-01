@@ -11,10 +11,10 @@ function initMap() {
     $.each(restaurantsToShow, function(index, restaurant) {
       if (
         restaurant.location.lat !== null &&
-        restaurant.location.lng !== null
+        restaurant.location.lon !== null
       ) {
         var stringInfo = `<div><p> ${restaurant.name} </p>
-      <p>${restaurant.location.adress}</p>
+      <p>${restaurant.location.address}</p>
       <p>${restaurant.rate}</p></div>
       `;
 
@@ -24,8 +24,8 @@ function initMap() {
 
         var marker = new google.maps.Marker({
           position: {
-            lat: restaurant.location.lat,
-            lng: restaurant.location.lng,
+            lat: parseFloat(restaurant.location.lat),
+            lng: parseFloat(restaurant.location.lon),
           },
           map: map,
           title: `${restaurant.name}`,

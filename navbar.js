@@ -2,7 +2,7 @@ var categoryFiveCounter = 0;
 var categoryDropdownCounter = 0;
 
 var categoriesSort = categories.sort(function(a, b) {
-  return b.count - a.count;
+  return b.places_count - a.places_count;
 });
 
 var firstFiveCategory = function() {

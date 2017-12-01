@@ -1,7 +1,12 @@
 @import 'rest.css';
 @import 'map.css';
 @import 'galery.css';
+@import 'preloader.css';
 
 * {
   box-sizing: border-box;
+}
+
+.main {
+  display: none;
 }

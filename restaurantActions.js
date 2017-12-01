@@ -6,6 +6,7 @@ function getAllRestaurants() {
     'GET',
     function(response) {
       responseTestaurants = response;
+      restaurantsDownloaded = true;
     },
     function(response) {}
   );

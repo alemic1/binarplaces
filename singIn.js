@@ -17,7 +17,6 @@ $(document).ready(function() {
   });
 
   if (localStorage.auth_token != undefined && localStorage.auth_token != '') {
-    console.log('aa');
     $SingInSingUpSection.html(
       '<p>Jestes zalogowany jako ' +
         localStorage.email +

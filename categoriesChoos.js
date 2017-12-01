@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var restaurantsToShow;
 var idChoosenCategory = '';
 
@@ -15,6 +16,19 @@ $(document).ready(function() {
       initMap();
     });
   }
+=======
+var restaurantsToShow = inicializeRestaurantToShow();
+var idChoosenCategory = '';
+
+$(document).ready(function() {
+  idChoosenCategory = splittedLocationHash();
+  restaurantsToShow = inicializeRestaurantToShow();
+  showCategory();
+  moment.locale('pl');
+  $('#linkMap').on('click', function() {
+    initMap();
+  });
+>>>>>>> origin/master
 });
 
 $(window).on('hashchange', function(e) {

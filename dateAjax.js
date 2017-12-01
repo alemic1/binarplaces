@@ -4,12 +4,12 @@ var loggedUserUrl = '/user'; // response: {id: 1, name: “Donald Trump”, emai
 var categoriesUrl = '/categories'; //response: [{id: 1, name: ‘kuchnia chińska’, count: <ilośc lokali>}, ...]
 var restaurantsUrl =
   '/places'; /*
-params: lat (opcjonalny), lng (opcjonalny), max_distance (opcjonalny) 
-albo wszystkie albo żaden (w przeciwnym razie Bad Request)
+params: lat (opcional), lng (opcional), max_distance (opcional) 
+all or none
 
 response: [{id: “”, name: “”, category_id: 1, location: {address: “”, lat: 52.1, lng: 19.5}, rate: 4.5}, ...]
 
-POST /places - dodawanie lokalu, wymaga zalogowania
+POST /places - add restaurans, need to be logged
         params: name, category_id, address, lat (opcjonalne), lng (opcjonalne), photo
         no response (201)
 

@@ -13,22 +13,19 @@ $(document).ready(function() {
       labels: labels,
       datasets: [
         {
-          label: 'Oceny lokali',
+          label: 'Liczba lokali z daną oceną ',
           data: date,
           borderWidth: 1,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+          ],
         },
       ],
-    },
-    options: {
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true,
-            },
-          },
-        ],
-      },
     },
   });
 
@@ -37,7 +34,7 @@ $(document).ready(function() {
     .getContext('2d');
 
   var labelCategory = categories.map(function(category) {
-    return category.id;
+    return category.name;
   });
 
   var dateCategory = categories.map(function(category) {
@@ -53,6 +50,14 @@ $(document).ready(function() {
           label: 'Liczba lokali z daną oceną',
           data: dateCategory,
           borderWidth: 1,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+          ],
         },
       ],
     },

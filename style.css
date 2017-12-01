@@ -11,17 +11,32 @@
   float: right;
 }
 
-@media (min-width: 769px) {
+@media (max-width: 1800px) {
   .navbarLinks {
+    display: block !important;
+  }
+  .dropdownTop5 {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1150px) {
+  .navbarLinks {
+    display: none !important;
+  }
+  .dropdownTop5 {
     display: block !important;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .navbarLinks {
+    display: block !important;
+  }
+  .dropdownTop5 {
+    display: none !important;
+  }
 }
 
 @media (max-width: 460px) {
-  .navbarLinks {
-    display: none !important;
-  }
 }

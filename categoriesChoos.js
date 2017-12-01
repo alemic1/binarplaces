@@ -7,7 +7,9 @@ $(document).ready(function() {
   showCategory();
   moment.locale('pl');
   $('#linkMap').on('click', function() {
-    initMap();
+    setTimeout(function() {
+      initMap();
+    }, 20);
   });
 });
 

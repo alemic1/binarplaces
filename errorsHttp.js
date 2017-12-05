@@ -3,7 +3,7 @@ function returnResponseForCode(response) {
     case 404:
       return 'Nie znaleziono';
     case 403:
-      return 'Nie masz dostępu do tej funkcji';
+      return 'Twoja sesja wygasła, zaloguj się ponownie';
     case 422:
       return 'Twoja sesja wygasła, zaloguj się ponownie';
     case 500:

@@ -33,21 +33,15 @@ function inicializeRestaurantToShow() {
   if (idChoosenCategory != -1) {
     var restaurantsToShow = restaurants
       .filter(function(restaurant) {
-        return (
-          restaurant.category_id == idChoosenCategory && restaurant.id < 11
-        );
+        return restaurant.category_id == idChoosenCategory;
       })
       .sort(function(a, b) {
         return b.rate - a.rate;
       });
   } else
-    var restaurantsToShow = restaurants
-      .filter(function(restaurant) {
-        return restaurant.id < 11;
-      })
-      .sort(function(a, b) {
-        return b.rate - a.rate;
-      });
+    var restaurantsToShow = restaurants.sort(function(a, b) {
+      return b.rate - a.rate;
+    });
 
   return restaurantsToShow;
 }

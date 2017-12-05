@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  var $addRestaurantModalForm = $('#addRestaurantModalForm');
   jQuery.validator.setDefaults({
     debug: true,
     success: 'valid',
@@ -11,10 +12,10 @@ $(document).ready(function() {
   });
 
   $('.addRestaurantButtonModal').on('click', function() {
-    $('#addRestaurantModalForm').submit();
+    $addRestaurantModalForm.submit();
   });
 
-  $('#addRestaurantModalForm').validate({
+  $addRestaurantModalForm.validate({
     rules: {
       name: {
         required: true,

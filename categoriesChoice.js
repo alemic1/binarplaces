@@ -47,7 +47,6 @@ $(window).on('hashchange', function(e) {
 
 function splittedLocationHash() {
   var splitOne = $(location).attr('href').split('#');
-  console.log(splitOne);
   if (splitOne[1] != null && splitOne[1] !== '')
     splitOne = splitOne[1].split('%')[0];
   else splitOne = -1;

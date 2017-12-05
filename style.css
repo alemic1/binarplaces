@@ -3,11 +3,7 @@
 @import 'galery.css';
 @import 'preloader.css';
 
-* {
-  box-sizing: border-box;
-}
-
-@media (max-width: 1800px) {
+@media (min-width: 1151px) {
   .navbarLinks {
     display: block !important;
   }
@@ -34,9 +30,6 @@
   }
 }
 
-@media (max-width: 460px) {}
 .main {
   display: none;
 }
-
-

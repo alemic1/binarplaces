@@ -1,14 +1,10 @@
+@import 'rest.css';
+@import 'map.css';
+@import 'galery.css';
+@import 'preloader.css';
+
 * {
   box-sizing: border-box;
-}
-
-#myMap {
-  height: 20vw;
-  width: 100%;
-}
-
-.singInSingUp {
-  float: right;
 }
 
 @media (max-width: 1800px) {
@@ -38,5 +34,9 @@
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 460px) {}
+.main {
+  display: none;
 }
+
+

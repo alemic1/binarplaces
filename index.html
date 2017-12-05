@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
-  <link rel="stylesheet" href="reset.css">
-
-
+  <link rel="stylesheet" href="style.css">
 
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -36,24 +34,31 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/locale/pl.js" integrity="sha256-+ZhowI7vT/wSRoiVJ2P76g2Eg/qfWOASyf+0iRfNjyM="
     crossorigin="anonymous"></script>
-
-
-  <script src="date.js"></script>
-  <script src="categoriesChoos.js"></script>
-  <script src="map.js"></script>
-
-
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k&sensor=false"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" integrity="sha256-i6N2FjiALCyH7H0pVVd5Ut+9oJ9CJ2t/25aELbdW2xg="
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" integrity="sha256-p6xU9YulB7E2Ic62/PX+h59ayb3PBJ0WFTEQxq0EjHw="
     crossorigin="anonymous" />
 
 
-  <link rel="stylesheet" href="style.css">
+  <script src="variables.js"></script>
+  <script src="dataAjax.js"></script>
+  <script src="railsApi.js"></script>
+  <script src="categoriesActions.js"></script>
+  <script src="restaurantActions.js"></script>
+  <script src="sessionAction.js"></script>
+
+  <script src="date.js"></script>
+
+  <script src="map.js"></script>
+  <script src="categoriesChoos.js"></script>
+
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" integrity="sha256-i6N2FjiALCyH7H0pVVd5Ut+9oJ9CJ2t/25aELbdW2xg="
+    crossorigin="anonymous" />
 
   <title>BinarPlaces</title>
 
 
 </head>
+
 
 <body>
   <script src="navbar.js"></script>
@@ -61,86 +66,102 @@
   <script src="list.js"></script>
   <script src="chart.js"></script>
   <script src="addRate.js"></script>
+  <script src="singIn.js"></script>
+  <script src="preloader.js"></script>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-          aria-expanded="false">
+  <div class="sk-fading-circle">
+    <div class="sk-circle1 sk-circle"></div>
+    <div class="sk-circle2 sk-circle"></div>
+    <div class="sk-circle3 sk-circle"></div>
+    <div class="sk-circle4 sk-circle"></div>
+    <div class="sk-circle5 sk-circle"></div>
+    <div class="sk-circle6 sk-circle"></div>
+    <div class="sk-circle7 sk-circle"></div>
+    <div class="sk-circle8 sk-circle"></div>
+    <div class="sk-circle9 sk-circle"></div>
+    <div class="sk-circle10 sk-circle"></div>
+    <div class="sk-circle11 sk-circle"></div>
+    <div class="sk-circle12 sk-circle"></div>
+  </div>
+  <div class="main">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav links">
-          <li>
-            <p class="navbar-text "><a href="#" class="navbar-link">Wszystkie</a></p>
-            <li class="navbarLinks">
-            </li>
-          </li>
-          <li class="dropdown dropdownTop5">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Top 5 <span class="caret"></span></a>
-            <ul class="dropdown-menu top5"></ul>
-          </li>
-
-          <li class="dropdown dropdownNotTop5">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inne <span class="caret"></span></a>
-            <ul class="dropdown-menu notTop5"></ul>
-          </li>
-        </ul>
-        <ul class="navbar-right">
-          <li class="singInSingUp navbar-text navbar-right">
-            <span id="singInButton"> Sing In </span>/ <span id="singUpButton">Sing Up</span>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </nav>
-
-
-  <div class="container-fluid">
-
-    <div class=" row ">
-      <div class="col-md-8 ">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">List</a></li>
-          <li role="presentation"><a href="#galery" aria-controls="galery" role="tab" data-toggle="tab">Galeria</a>
-          </li>
-          <li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" id="linkMap">Map</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content ">
-          <div role="tabpanel " class="tab-pane active " id="list">
-            <table class="table locals">
-
-            </table>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="galery">
-            <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>
-
-          </div>
-
-          <div role="tabpanel" class="tab-pane" id="map">
-            <p> Mapa restauracji dla wybranej kategorii </p>
-            <div id="myMap"></div>
-          </div>
         </div>
 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav links">
+            <li>
+              <p class="navbar-text "><a href="#" class="navbar-link">Wszystkie</a></p>
+              <li class="navbarLinks">
+              </li>
+            </li>
+            <li class="dropdown dropdownTop5">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Top 5 <span class="caret"></span></a>
+              <ul class="dropdown-menu top5"></ul>
+            </li>
+
+            <li class="dropdown dropdownNotTop5">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inne <span class="caret"></span></a>
+              <ul class="dropdown-menu notTop5"></ul>
+            </li>
+          </ul>
+          <ul class="navbar-right">
+            <li class="singInSingUp navbar-text navbar-right">
+              <span id="singInButton"> Sing In </span>/ <span id="singUpButton">Sing Up</span>
+            </li>
+          </ul>
+
+        </div>
       </div>
-      <div class="col-md-4 ">
-        <canvas id="myChart"></canvas>
-        <canvas id="categoryCHart">
-        </canvas>
+    </nav>
+    <div class="container-fluid">
+      <div class=" row ">
+        <div class="col-md-8 ">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">List</a></li>
+            <li role="presentation"><a href="#galery" aria-controls="galery" role="tab" data-toggle="tab">Galeria</a>
+            </li>
+            <li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" id="linkMap">Map</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content ">
+            <div role="tabpanel " class="tab-pane active " id="list">
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="galery">
+              <div class="galery">
+                <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>
+
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="map">
+              <p> Mapa restauracji dla wybranej kategorii </p>
+              <div id="myMap"></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 ">
+          <canvas id="myChart"></canvas>
+          <canvas id="categoryCHart">
+          </canvas>
+        </div>
       </div>
+
+
+
     </div>
-
-
-
+    <footer />
   </div>
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -218,7 +239,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Zaloguj się</button>
+          <button type="button" class="btn btn-primary singIn">Zaloguj się</button>
         </div>
       </div>
     </div>
@@ -262,7 +283,11 @@
 
 
 
-  <footer/>
+
+
+
+
+
 
 
 

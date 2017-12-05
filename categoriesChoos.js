@@ -17,9 +17,6 @@ $(document).ready(function() {
     $('#singUpModal').modal('show');
   });
 
-  $('#linkMap').on('click', function() {
-    initMap();
-  });
   if (localStorage.auth_token != undefined && localStorage.auth_token != '') {
     $('.singInSingUp').html(
       '<p>Jestes zalogowany jako ' +
@@ -34,6 +31,11 @@ $(document).ready(function() {
   } else {
     $('.addRateButton').prop('disabled', 'disabled');
   }
+  $('#linkMap').on('click', function() {
+    setTimeout(function() {
+      initMap();
+    }, 20);
+  });
 });
 
 $(window).on('hashchange', function(e) {
@@ -45,7 +47,9 @@ $(window).on('hashchange', function(e) {
 
 function splittedLocationHash() {
   var splitOne = $(location).attr('href').split('#');
-  if (splitOne[1] != null) splitOne = splitOne[1].split('%')[0];
+  console.log(splitOne);
+  if (splitOne[1] != null && splitOne[1] !== '')
+    splitOne = splitOne[1].split('%')[0];
   else splitOne = -1;
 
   return splitOne;
@@ -55,7 +59,7 @@ function inicializeRestaurantToShow() {
   if (idChoosenCategory != -1) {
     var restaurantsToShow = restaurants
       .filter(function(restaurant) {
-        return restaurant.category_id === idChoosenCategory;
+        return restaurant.category_id == idChoosenCategory;
       })
       .sort(function(a, b) {
         return b.rate - a.rate;

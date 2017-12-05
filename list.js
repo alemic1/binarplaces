@@ -12,20 +12,23 @@ function showCategory() {
     $('#list').html('Brak lokali w tej kategorii');
   } else {
     $('#list').html(
-      '<table class="table restaurants"><th>Nazwa</th><th>Adress</th><th>Oceny</th></table>'
+      '<div class="table-responsive "><table class="table table-striped"><thead><tr><th>Nazwa</th><th>Adress</th><th>Oceny</th></tr></thead><tbody class="restaurants"></tbody></table></div>'
     );
     $.each(restaurantsToShow, function(index, restaurant) {
       $('.restaurants').append(
         '<tr><td>' +
           restaurant.name +
           '</td><td>' +
-          restaurant.location.adress +
-          '</td><td><div class="stars1" data-toggle="tooltip" data-placement="left" title="' +
+          restaurant.location.address +
+          '</td><td><div class="stars1 stars' +
+          restaurant.id +
+          '" data-toggle="tooltip" data-placement="left" title="' +
           restaurant.rate +
           '"><select class="stars" ><option value="1">1</option> <option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div></td></tr>'
       );
       initializeStarRating(restaurant.rate);
-      $('.stars1').on('click', function() {
+      $('.stars' + restaurant.id).on('click', function() {
+        rates = getRevieRestaurantReviews(restaurant.id);
         $('#myModal').modal('show');
         createModal(restaurant);
       });
@@ -36,12 +39,10 @@ function showCategory() {
 function createModal(restaurant) {
   $('.ratesModalTitle').html('Oceny dla lokalu ' + restaurant.name);
   $('.ratesModalBody').html(
-    '<table class="table rate"><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></table>'
+    '<table class="table"><thead><tr><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></tr></thead><tbody class="rate"></tbody></table>'
   );
   $.each(rates, function(index, rate) {
-    var date = rate.created_at.split('-').reverse();
-    date[1]--;
-    message = moment(date).fromNow();
+    message = moment(rate.created_at).fromNow();
 
     $('.rate').append(
       '<tr><td>' +
@@ -51,9 +52,9 @@ function createModal(restaurant) {
         '</td><td><span  data-toggle="tooltip" data-placement="bottom" title="' +
         message +
         '">' +
-        rate.created_at +
+        moment(rate.created_at).format('DD-MM-YYYY') +
         '</span></td><td>' +
-        rate.text +
+        rate.content +
         '</td></tr>'
     );
   });

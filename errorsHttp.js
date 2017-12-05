@@ -5,7 +5,7 @@ function returnResponseForCode(response) {
     case 403:
       return 'Twoja sesja wygasła, zaloguj się ponownie';
     case 422:
-      return 'Twoja sesja wygasła, zaloguj się ponownie';
+      return 'Błędne zapytanie';
     case 500:
       return 'Blad serwera';
     default:

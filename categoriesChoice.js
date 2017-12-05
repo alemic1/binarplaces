@@ -33,9 +33,7 @@ function inicializeRestaurantToShow() {
   if (idChoosenCategory != -1) {
     var restaurantsToShow = restaurants
       .filter(function(restaurant) {
-        return (
-          restaurant.category_id == idChoosenCategory && restaurant.id < 11
-        );
+        return restaurant.category_id == idChoosenCategory && restaurant.id;
       })
       .sort(function(a, b) {
         return b.rate - a.rate;
@@ -43,7 +41,7 @@ function inicializeRestaurantToShow() {
   } else
     var restaurantsToShow = restaurants
       .filter(function(restaurant) {
-        return restaurant.id < 11;
+        return restaurant.id;
       })
       .sort(function(a, b) {
         return b.rate - a.rate;

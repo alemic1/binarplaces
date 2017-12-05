@@ -10,7 +10,12 @@ function inizializeRequest(url, data, typeget, successFunction, errorFunction) {
       'Cache-Control': 'max-age=1000',
     },
     error: function(response) {
-      errorFunction(response);
+      console.log(response);
+      $(document).ready(function() {
+        var message = returnResponseForCode(response);
+        var popup = new $.Popup();
+        popup.open(`<h1>${message}</h1>`, 'html');
+      });
     },
     success: function(response) {
       successFunction(response);

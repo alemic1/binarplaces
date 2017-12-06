@@ -2,7 +2,7 @@
 @import 'map.css';
 @import 'galery.css';
 @import 'preloader.css';
-
+@import 'modal.css';
 @media (min-width: 1151px) {
   .navbarLinks {
     display: block !important;

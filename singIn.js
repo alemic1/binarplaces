@@ -1,8 +1,6 @@
 $(document).ready(function() {
   var $SingInButtom = $('#singInButton');
   var $SingInModal = $('#singInModal');
-  var $SingUpButton = $('#singUpButton');
-  var $SingUpModal = $('#singUpModal');
   var $SingInSingUpSection = $('.singInSingUp');
   var $SingIn = $('.singIn');
   var $AddRestaurantButton = $('.addRestaurantButton');
@@ -11,10 +9,6 @@ $(document).ready(function() {
 
   $SingInButtom.on('click', function() {
     $SingInModal.modal('show');
-  });
-
-  $SingUpButton.on('click', function() {
-    $SingUpModal.modal('show');
   });
 
   if (localStorage.auth_token != undefined && localStorage.auth_token != '') {

@@ -1,5 +1,5 @@
-var singUPUrl = '/user/sign-up'; //params: email, name, password, password_confirmed
-var singInUrl = '/user/sign-in'; //params: email, password; response: {auth_token: “827h348uh2”, valid_until: 1511427170}
+var singUPUrl = '/user/sign_up'; //params: email, name, password, password_confirmed
+var singInUrl = '/user/sign_in'; //params: email, password; response: {auth_token: “827h348uh2”, valid_until: 1511427170}
 var loggedUserUrl = '/user'; // response: {id: 1, name: “Donald Trump”, email: “” }
 var categoriesUrl = '/categories'; //response: [{id: 1, name: ‘kuchnia chińska’, count: <ilośc lokali>}, ...]
 var restaurantsUrl =

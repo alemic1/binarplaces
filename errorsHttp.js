@@ -1,5 +1,7 @@
 function returnResponseForCode(response) {
   switch (response.status) {
+    case 400:
+      return 'Bledne dane' + response.responseText;
     case 404:
       return 'Nie znaleziono';
     case 403:

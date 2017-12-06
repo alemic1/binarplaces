@@ -20,8 +20,8 @@ function singUpUser(email, password, confirmPassword, userName) {
     {
       email: email,
       password: password,
-      confirmPassword: confirmPassword,
-      useName: userName,
+      password_confirmation: confirmPassword,
+      name: userName,
     },
     'POST',
     function(response) {},

@@ -4,7 +4,6 @@ function inizializeRequest(url, data, typeget, successFunction, errorFunction) {
     data: data,
     type: typeget,
     crossDomain: true,
-    dataType: 'json',
     async: false,
     headers: {
       'Cache-Control': 'max-age=1000',

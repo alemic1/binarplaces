@@ -1,20 +1,15 @@
 $(document).ready(function() {
   var $SingInButtom = $('#singInButton');
   var $SingInModal = $('#singInModal');
-  var $SingUpButton = $('#singUpButton');
-  var $SingUpModal = $('#singUpModal');
   var $SingInSingUpSection = $('.singInSingUp');
   var $SingIn = $('.singIn');
   var $AddRestaurantButton = $('.addRestaurantButton');
+  var $singInForm = $('#singInForm');
 
   var $AddRateButton = $('.addRateButton');
 
   $SingInButtom.on('click', function() {
     $SingInModal.modal('show');
-  });
-
-  $SingUpButton.on('click', function() {
-    $SingUpModal.modal('show');
   });
 
   if (localStorage.auth_token != undefined && localStorage.auth_token != '') {
@@ -23,7 +18,9 @@ $(document).ready(function() {
         localStorage.email +
         '   <span class="singOut">Wyloguj sie</span></p>'
     );
+
     var $SingOut = $('.singOut');
+
     $SingOut.on('click', function() {
       localStorage.removeItem('auth_token');
       localStorage.removeItem('email');
@@ -33,9 +30,25 @@ $(document).ready(function() {
     $AddRateButton.prop('disabled', 'disabled');
     $AddRestaurantButton.prop('disabled', 'disabled');
   }
+
   $SingIn.on('click', function() {
-    localStorage.setItem('auth_token', 'aa');
-    localStorage.setItem('email', 'aaaa@ccc');
-    location.reload();
+    $singInForm.submit();
+    if ($singInForm.valid()) {
+      var email = $('#emailSingIn').val();
+      var password = $('#passwordSingIn').val();
+      singInUser(email, password);
+    }
+  });
+
+  $singInForm.validate({
+    rules: {
+      email: {
+        required: true,
+      },
+      password: {
+        required: true,
+        minlength: 6,
+      },
+    },
   });
 });

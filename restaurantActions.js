@@ -3,7 +3,9 @@ function getAllRestaurants() {
   inizializeRequest(
     restaurantsUrl,
     {},
+    'json',
     'GET',
+    [],
     function(response) {
       responseTestaurants = response;
       restaurantsDownloaded = true;
@@ -14,28 +16,32 @@ function getAllRestaurants() {
 }
 
 function addNewRestaurant(name, category_id, adress, lat, lng) {
+  console.log(localStorage.auth_token), console.log(localStorage.email);
   var date;
   if (lat != undefined && lng != undefined) {
     date = {
       name: name,
       category_id: category_id,
-      adress: adress,
+      address: adress,
       lat: lat,
-      lng: lng,
+      lon: lng,
     };
   } else {
-    date = {name: name, category_id: category_id, adress: adress};
+    date = {name: name, category_id: category_id, address: adress};
   }
   inizializeRequest(
     restaurantsUrl,
     date,
+    'text',
     'POST',
-    function(response) {
-      console.log(response);
+    {
+      'X-USER-TOKEN': localStorage.auth_token,
+      'X-USER-EMAIL': localStorage.email,
     },
     function(response) {
-      console.log(response);
-    }
+      location.reload();
+    },
+    function(response) {}
   );
 }
 
@@ -51,7 +57,9 @@ function getRevieRestaurantReviews(id) {
   inizializeRequest(
     url,
     {},
+    'json',
     'GET',
+    [],
     function(response) {
       reviews = response;
     },

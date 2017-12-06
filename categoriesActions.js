@@ -3,7 +3,9 @@ function getAllCategories() {
   inizializeRequest(
     categoriesUrl,
     {},
+    'json',
     'GET',
+    [],
     function(response) {
       categoriesResponse = response;
       categoriesDownloaded = true;

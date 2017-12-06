@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   $('.addRestaurantButton').on('click', function() {
     setTimeout(function() {
-      initSeachMap();
+      initMap('searchMap', true);
     }, 300);
   });
 

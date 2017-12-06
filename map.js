@@ -1,5 +1,9 @@
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('myMap'), {
+var marker;
+
+function initMap(nameClass, isSearchBox) {
+  isSearchBox = typeof isSearchBox !== undefined ? isSearchBox : false;
+
+  var map = new google.maps.Map(document.getElementById(nameClass), {
     zoom: 6,
     center: {
       lat: 52,
@@ -7,6 +11,14 @@ function initMap() {
     },
   });
 
+  if (isSearchBox) {
+    createGeocoder(map);
+  } else {
+    createMarkers(map);
+  }
+}
+
+function createMarkers(map) {
   if (restaurantsToShow.length != 0) {
     $.each(restaurantsToShow, function(index, restaurant) {
       if (
@@ -37,4 +49,31 @@ function initMap() {
       }
     });
   }
+}
+
+function createGeocoder(map) {
+  var geocoder = new google.maps.Geocoder();
+  document.getElementById('submit').addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  if (marker != null) marker.setMap(null);
+  var address = document.getElementById('address').value;
+  geocoder.geocode({address: address}, function(results, status) {
+    if (status === 'OK') {
+      resultsMap.setCenter(results[0].geometry.location);
+      marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location,
+      });
+      latlngSearchedMap = {
+        lat: results[0].geometry.location.lat(),
+        lng: results[0].geometry.location.lat(),
+      };
+    } else {
+      $('.messageErrorAddress').html(`Nie znaleziono takiego adresu`);
+    }
+  });
 }

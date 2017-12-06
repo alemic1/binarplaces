@@ -33,7 +33,7 @@ $(document).ready(function() {
   }
   $('#linkMap').on('click', function() {
     setTimeout(function() {
-      initMap();
+      initMap('myMap');
     }, 20);
   });
 });
@@ -42,7 +42,7 @@ $(window).on('hashchange', function(e) {
   idChoosenCategory = splittedLocationHash();
   restaurantsToShow = inicializeRestaurantToShow();
   showCategory();
-  initMap();
+  initMap('myMap');
 });
 
 function splittedLocationHash() {

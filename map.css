@@ -1,4 +1,9 @@
-#myMap {
+.myMap {
+  height: 40vw;
+  width: 100%;
+}
+
+.searchMap {
   height: 40vw;
   width: 100%;
 }

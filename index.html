@@ -72,6 +72,7 @@
   <script src="addRate.js"></script>
   <script src="singIn.js"></script>
   <script src="preloader.js"></script>
+  <script src="addRestaurant.js"></script>
 
   <div class="sk-fading-circle">
     <div class="sk-circle1 sk-circle"></div>
@@ -138,7 +139,9 @@
 
           <!-- Tab panes -->
           <div class="tab-content ">
-            <div role="tabpanel " class="tab-pane active " id="list">
+            <div role="tabpanel " class="tab-pane active ">
+              <button type="button" class="btn btn-default addRestaurantButton pull-right" data-toggle="modal" data-target="#addRestaurantModal">Dodaj restauracje</button>
+              <div id="list"></div>
 
             </div>
             <div role="tabpanel" class="tab-pane" id="galery">
@@ -236,7 +239,7 @@
               <label for="email">Adres email</label>
               <input type="email" class="form-control" id="email" name="email" placeholder="email">
               <br>
-              <label for "date">Hasło</label>
+              <label for="date">Hasło</label>
               <input type="text" class="form-control" id="password" name="password" placeholder="haslo">
             </div>
           </form>
@@ -282,6 +285,51 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="addRestaurantModal" tabindex="-1" role="dialog" aria-labelledby="addRestaurantLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Dodaj Restauracje</h4>
+        </div>
+        <div class="modal-body">
+          <form id="addRestaurantModalForm">
+            <div class="form-group">
+              <label for="name">Nazwa restauracji</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="nazwa resatauracji">
+              <br>
+              <label for="address">Adres</label>
+              <input type="text" class="form-control" id="street" name="street" placeholder="ulica">
+              <input type="number" class="form-control" id="number" name="number" placeholder="numer lokalu">
+              <input type="text" class="form-control" id="town" name="town" placeholder="miasto">
+
+              <br>
+              <label for="category">Kategoria</label>
+              <select class="categorySelect" id="category" name="category"></select>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+          <button type="button" class="btn btn-default addRestaurantButtonModal">Dodaj </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

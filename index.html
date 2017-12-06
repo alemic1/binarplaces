@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" integrity="sha256-p6xU9YulB7E2Ic62/PX+h59ayb3PBJ0WFTEQxq0EjHw="
     crossorigin="anonymous" />
   <script src="popup.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k"></script>
 
 
   <script src="errorsHttp.js"></script>
@@ -51,9 +52,10 @@
   <script src="data.js"></script>
 
   <script src="map.js"></script>
+  <script src="searchAdressMap.js"></script>
   <script src="categoriesChoice.js"></script>
 
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" integrity="sha256-i6N2FjiALCyH7H0pVVd5Ut+9oJ9CJ2t/25aELbdW2xg="
     crossorigin="anonymous" />
 
@@ -114,7 +116,7 @@
       <div class=" row ">
         <div class="col-md-8 ">
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">List</a></li>
+            <li role="presentation" class="active"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">List</a></li>
             <li role="presentation"><a href="#galery" aria-controls="galery" role="tab" data-toggle="tab">Galeria</a>
             </li>
             <li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" id="linkMap">Map</a></li>
@@ -122,7 +124,7 @@
 
           <!-- Tab panes -->
           <div class="tab-content ">
-            <div role="tabpanel " class="tab-pane active ">
+            <div role="tabpanel " class="tab-pane active" id="lists">
               <button type="button" class="btn btn-default addRestaurantButton pull-right" data-toggle="modal" data-target="#addRestaurantModal">Dodaj restauracje</button>
               <div id="list"></div>
 
@@ -282,14 +284,16 @@
               <label for="name">Nazwa restauracji</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="nazwa resatauracji">
               <br>
-              <label for="address">Adres</label>
-              <input type="text" class="form-control" id="street" name="street" placeholder="ulica">
-              <input type="number" class="form-control" id="number" name="number" placeholder="numer lokalu">
-              <input type="text" class="form-control" id="town" name="town" placeholder="miasto">
-
-              <br>
               <label for="category">Kategoria</label>
               <select class="categorySelect" id="category" name="category"></select>
+              <label for="address">Adres</label>
+              <div id="floating-panel">
+                <input id="address" type="textbox" value="Polska">
+                <input id="submit" type="button" value="Znajdź na mapie">
+              </div>
+              <div id="searchMap"></div>
+              <div class="messageErrorAddress"></div>
+
             </div>
 
           </form>

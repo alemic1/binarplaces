@@ -1,5 +1,13 @@
 $(document).ready(function() {
   var $addRestaurantModalForm = $('#addRestaurantModalForm');
+
+  $('.addRestaurantButton').on('click', function() {
+    setTimeout(function(){
+    initSeachMap();
+
+    },300)
+  });
+
   jQuery.validator.setDefaults({
     debug: true,
     success: 'valid',

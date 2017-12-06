@@ -42,7 +42,14 @@ function addRestaurant() {
     return category.id == categoryIndex;
   });
 
-  if ($addRestaurantModalForm.valid()) {
-    //addNewRestaurant(nameRestaurant,categoryRestaurant, adressRestaurant,latlngSearchedMap.lat,latlngSearchedMap.lng)
+  if ($addRestaurantModalForm.valid() && latlngSearchedMap != null) {
+    console.log(adressRestaurant);
+    addNewRestaurant(
+      nameRestaurant,
+      categoryRestaurant.id,
+      adressRestaurant,
+      latlngSearchedMap.lat,
+      latlngSearchedMap.lng
+    );
   }
 }

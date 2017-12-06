@@ -70,7 +70,7 @@ function geocodeAddress(geocoder, resultsMap) {
       });
       latlngSearchedMap = {
         lat: results[0].geometry.location.lat(),
-        lng: results[0].geometry.location.lat(),
+        lng: results[0].geometry.location.lng(),
       };
     } else {
       var popUp = new $.Popup();

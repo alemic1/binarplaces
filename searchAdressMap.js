@@ -19,6 +19,10 @@ function geocodeAddress(geocoder, resultsMap) {
         map: resultsMap,
         position: results[0].geometry.location,
       });
+      latlngSearchedMap = {
+        lat: results[0].geometry.location.lat(),
+        lng: results[0].geometry.location.lat(),
+      };
     } else {
       $('.messageErrorAddress').html(`Nie znaleziono takiego adresu`);
     }

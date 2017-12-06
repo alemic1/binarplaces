@@ -285,11 +285,12 @@
               <input type="text" class="form-control" id="name" name="name" placeholder="nazwa resatauracji">
               <br>
               <label for="category">Kategoria</label>
-              <select class="categorySelect" id="category" name="category"></select>
+              <select class="categorySelect" id="category" name="category">
+                <option value="-">-</option></select>
               <label for="address">Adres</label>
               <div id="floating-panel">
-                <input id="address" type="textbox" value="Polska">
-                <input id="submit" type="button" value="Znajdź na mapie">
+                <input id="address" type="textbox" name="address">
+                <input id="submit" type="button" value="Znajdź na mapie" name="button">
               </div>
               <div id="searchMap"></div>
               <div class="messageErrorAddress"></div>

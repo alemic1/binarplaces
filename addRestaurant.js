@@ -2,10 +2,9 @@ $(document).ready(function() {
   var $addRestaurantModalForm = $('#addRestaurantModalForm');
 
   $('.addRestaurantButton').on('click', function() {
-    setTimeout(function(){
-    initSeachMap();
-
-    },300)
+    setTimeout(function() {
+      initSeachMap();
+    }, 300);
   });
 
   jQuery.validator.setDefaults({
@@ -21,6 +20,7 @@ $(document).ready(function() {
 
   $('.addRestaurantButtonModal').on('click', function() {
     $addRestaurantModalForm.submit();
+    addRestaurant();
   });
 
   $addRestaurantModalForm.validate({
@@ -28,16 +28,24 @@ $(document).ready(function() {
       name: {
         required: true,
       },
-      town: {
-        required: true,
-      },
-      street: {
-        required: true,
-      },
-      number: {
-        required: true,
-        min: 1,
-      },
     },
   });
 });
+
+function addRestaurant() {
+  var nameRestaurant = $('#name').val();
+  var adressRestaurant = $('#address').val();
+  var categoryIndex = $('#category').val();
+  var categoryRestaurant = categories.find(function(category) {
+    return category.id == categoryIndex;
+  });
+
+  if (
+    categoryRestaurant != null &&
+    nameRestaurant != null &&
+    adressRestaurant != null &&
+    latlngSearchedMap.lat !== null
+  ) {
+    //addNewRestaurant(nameRestaurant,categoryRestaurant, adressRestaurant,latlngSearchedMap.lat,latlngSearchedMap.lng)
+  }
+}

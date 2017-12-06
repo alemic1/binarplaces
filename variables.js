@@ -1,7 +1,6 @@
 var restaurants;
-var restaurantsIsDownload = false;
+var restaurantsDownloaded = false;
 var categories;
-var categoriesIsDownload = false;
+var categoriesDownloaded = false;
 var rate;
-var ratesIsDownload = false;
-var resIsOk = false;
+var latlngSearchedMap;

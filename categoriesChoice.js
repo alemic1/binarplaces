@@ -8,7 +8,7 @@ $(document).ready(function() {
   moment.locale('pl');
   $('#linkMap').on('click', function() {
     setTimeout(function() {
-      initMap();
+      initMap('myMap');
     }, 20);
   });
 });
@@ -16,7 +16,7 @@ $(document).ready(function() {
 $(window).on('hashchange', function(e) {
   idChoosenCategory = splittedLocationHash();
   restaurantsToShow = inicializeRestaurantToShow();
-  showCategory();
+  showCategory('myMap');
   initMap();
 });
 

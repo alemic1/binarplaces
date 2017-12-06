@@ -5,6 +5,7 @@ $(document).ready(function() {
   var $SingUpModal = $('#singUpModal');
   var $SingInSingUpSection = $('.singInSingUp');
   var $SingIn = $('.singIn');
+  var $AddRestaurantButton = $('.addRestaurantButton');
 
   var $AddRateButton = $('.addRateButton');
 
@@ -30,6 +31,7 @@ $(document).ready(function() {
     });
   } else {
     $AddRateButton.prop('disabled', 'disabled');
+    $AddRestaurantButton.prop('disabled', 'disabled');
   }
   $SingIn.on('click', function() {
     localStorage.setItem('auth_token', 'aa');

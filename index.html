@@ -19,7 +19,7 @@
 
   <link rel="stylesheet" href="fontawesome-stars-o.css">
 
-
+  <link rel="stylesheet" href="popup.css">
   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -36,7 +36,11 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" integrity="sha256-p6xU9YulB7E2Ic62/PX+h59ayb3PBJ0WFTEQxq0EjHw="
     crossorigin="anonymous" />
+  <script src="popup.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k"></script>
 
+
+  <script src="errorsHttp.js"></script>
 
   <script src="variables.js"></script>
   <script src="dataAjax.js"></script>
@@ -50,7 +54,7 @@
   <script src="map.js"></script>
   <script src="categoriesChoice.js"></script>
 
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCvpgF4cBsQU3J15Wa4Uf91i-b_E-0Kn8k"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" integrity="sha256-i6N2FjiALCyH7H0pVVd5Ut+9oJ9CJ2t/25aELbdW2xg="
     crossorigin="anonymous" />
 
@@ -61,6 +65,7 @@
 
 
 <body>
+
   <script src="navbar.js"></script>
   <script src="footer.js"></script>
   <script src="list.js"></script>
@@ -68,6 +73,7 @@
   <script src="addRate.js"></script>
   <script src="singIn.js"></script>
   <script src="preloader.js"></script>
+  <script src="addRestaurant.js"></script>
 
   <div class="sk-fading-circle">
     <div class="sk-circle1 sk-circle"></div>
@@ -83,17 +89,34 @@
     <div class="sk-circle11 sk-circle"></div>
     <div class="sk-circle12 sk-circle"></div>
   </div>
-  <div class="bodyApp">
+  <div class="main">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        </div>
+
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav links">
-            <li class="navbarLinks">
+            <li>
               <p class="navbar-text "><a href="#" class="navbar-link">Wszystkie</a></p>
+              <li class="navbarLinks">
+              </li>
             </li>
-            <li class="dropdown">
+            <li class="dropdown dropdownTop5">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Top 5 <span class="caret"></span></a>
+              <ul class="dropdown-menu top5"></ul>
+            </li>
+
+            <li class="dropdown dropdownNotTop5">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inne <span class="caret"></span></a>
-              <ul class="dropdown-menu"></ul>
+              <ul class="dropdown-menu notTop5"></ul>
             </li>
           </ul>
           <ul class="navbar-right">
@@ -109,7 +132,7 @@
       <div class=" row ">
         <div class="col-md-8 ">
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">List</a></li>
+            <li role="presentation" class="active"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">List</a></li>
             <li role="presentation"><a href="#galery" aria-controls="galery" role="tab" data-toggle="tab">Galeria</a>
             </li>
             <li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" id="linkMap">Map</a></li>
@@ -117,7 +140,9 @@
 
           <!-- Tab panes -->
           <div class="tab-content ">
-            <div role="tabpanel " class="tab-pane active " id="list">
+            <div role="tabpanel " class="tab-pane active" id="lists">
+              <button type="button" class="btn btn-default addRestaurantButton pull-right" data-toggle="modal" data-target="#addRestaurantModal">Dodaj restauracje</button>
+              <div id="list"></div>
 
             </div>
             <div role="tabpanel" class="tab-pane" id="galery">
@@ -129,7 +154,7 @@
 
             <div role="tabpanel" class="tab-pane" id="map">
               <p> Mapa restauracji dla wybranej kategorii </p>
-              <div id="myMap"></div>
+              <div id="myMap" class="myMap"></div>
             </div>
           </div>
 
@@ -212,7 +237,7 @@
               <label for="email">Adres email</label>
               <input type="email" class="form-control" id="email" name="email" placeholder="email">
               <br>
-              <label for "date">Hasło</label>
+              <label for="date">Hasło</label>
               <input type="text" class="form-control" id="password" name="password" placeholder="haslo">
             </div>
           </form>
@@ -255,6 +280,41 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Wyślij</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addRestaurantModal" tabindex="-1" role="dialog" aria-labelledby="addRestaurantLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Dodaj Restauracje</h4>
+        </div>
+        <div class="modal-body">
+          <form id="addRestaurantModalForm">
+            <div class="form-group">
+              <label for="name">Nazwa restauracji</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="nazwa resatauracji">
+              <br>
+              <label for="category">Kategoria</label>
+              <select class="categorySelect" id="category" name="category">
+                <option value="-">-</option></select>
+              <label for="address">Adres</label>
+              <div id="floating-panel">
+                <input id="address" type="textbox" name="address">
+                <input id="submit" type="button" value="Znajdź na mapie" name="button">
+              </div>
+              <div id="searchMap" class="searchMap"></div>
+              <div class="messageErrorAddress"></div>
+
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+          <button type="button" class="btn btn-default addRestaurantButtonModal">Dodaj </div>
       </div>
     </div>
   </div>

@@ -6,11 +6,9 @@ function singInUser(email, password) {
     function(response) {
       localStorage.setItem('email', email);
       localStorage.setItem('auth_token', response);
+      location.reload();
     },
-    function(response) {
-      alert('blad logowania');
-      console.log(response);
-    }
+    function(response) {}
   );
 }
 

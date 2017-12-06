@@ -73,7 +73,8 @@ function geocodeAddress(geocoder, resultsMap) {
         lng: results[0].geometry.location.lat(),
       };
     } else {
-      $('.messageErrorAddress').html(`Nie znaleziono takiego adresu`);
+      var popUp = new $.Popup();
+      popUp.open(`<h1>Nie znaleziono takiego adresu}</h1>`, 'html');
     }
   });
 }

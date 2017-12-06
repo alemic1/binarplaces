@@ -1,5 +1,5 @@
 var restaurantsToShow = inicializeRestaurantToShow();
-var idChoosenCategory = '';
+var idChoosenCategory = ''; 
 
 $(document).ready(function() {
   idChoosenCategory = splittedLocationHash();

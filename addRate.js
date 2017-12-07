@@ -35,4 +35,14 @@ $(document).ready(function() {
       },
     },
   });
+
+  user = getLoggedUser();
+
+  $('.userDetails').append(
+    '<label for="user">Użytwkonik</label><p class="form-control-static">' +
+      user.name +
+      '</p><br><label for="email">Adres email</label><p class="form-control-static">' +
+      localStorage.email +
+      '</p>'
+  );
 });

@@ -48,4 +48,5 @@ function getLoggedUser() {
     },
     function(response) {}
   );
+  return loggedUser;
 }

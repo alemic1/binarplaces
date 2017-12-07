@@ -30,10 +30,10 @@ function addNewRestaurant(name, category_id, adress, lat, lng, photo) {
     };
   }
 
-  if (photo != nul) {
+  if (photo != null) {
     date = {
       ...date,
-      picture_url: photo,
+      picture: photo,
     };
   }
 

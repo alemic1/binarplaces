@@ -48,7 +48,6 @@ function createModal(restaurant) {
   $('.rate').sortable();
   $.each(rates, function(index, rate) {
     message = moment(rate.created_at).fromNow();
-
     $('.rate').append(
       '<tr><td>' +
         rate.username +
@@ -60,7 +59,12 @@ function createModal(restaurant) {
         moment(rate.created_at).format('DD-MM-YYYY') +
         '</span></td><td>' +
         rate.content +
-        '</td></tr>'
+        '</td><td class="deleteEdit"></td></tr>'
     );
+    user = getLoggedUser();
+    console.log(user);
+    if (user.name == rate.username) {
+      $('.deleteEdit').html('<button>EDIT</button><button>DELETE</button>');
+    }
   });
 }

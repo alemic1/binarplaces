@@ -3,10 +3,11 @@ var addedImgToBase64;
 $(document).ready(function() {
   var $addRestaurantModalForm = $('#addRestaurantModalForm');
   $('.addRestaurantButton').on('click', function() {
+    encodeImageFileAsURL();
     setTimeout(function() {
       initMap('searchMap', true);
-    }, 300);
-    encodeImageFileAsURL();
+      decodeImageBase64(addedImgToBase64, 'imgFile');
+    }, 3000);
   });
 
   jQuery.validator.setDefaults({
@@ -33,6 +34,13 @@ $(document).ready(function() {
     },
   });
 });
+
+function readImageAndEcnoce() {
+  encodeImageFileAsURL();
+  setTimeout(function() {
+    decodeImageBase64(addedImgToBase64, 'imgFile');
+  }, 20);
+}
 
 function addRestaurant() {
   var $addRestaurantModalForm = $('#addRestaurantModalForm');
@@ -62,14 +70,13 @@ function encodeImageFileAsURL() {
     var fileReader = new FileReader();
     fileReader.onload = function(fileLoadedEvent) {
       var srcData = fileLoadedEvent.target.result;
-      decodeImageBase64(srcData, 'imgFile');
+      addedImgToBase64 = srcData;
     };
     fileReader.readAsDataURL(fileToLoad);
   }
-
-  function decodeImageBase64(base64, imgId) {
-    var newImage = document.createElement('img');
-    newImage.src = base64;
-    document.getElementById(imgId).innerHTML = newImage.outerHTML;
-  }
+}
+function decodeImageBase64(base64, imgId) {
+  var newImage = document.createElement('img');
+  newImage.src = base64;
+  $('#' + imgId).append(newImage.outerHTML);
 }

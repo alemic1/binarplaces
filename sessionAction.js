@@ -2,8 +2,9 @@ function singInUser(email, password) {
   inizializeRequest(
     singInUrl,
     {email: email, password: password},
+    'json',
     'POST',
-    [],
+    {},
     function(response) {
       localStorage.setItem('email', email);
       localStorage.setItem('auth_token', response.auth_token);

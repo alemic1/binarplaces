@@ -1,5 +1,5 @@
 function getAllRestaurants() {
-  var responseTestaurants;
+  var responseTestaurants = [];
   inizializeRequest(
     restaurantsUrl,
     {},
@@ -44,15 +44,9 @@ function postNewRestaurant(name, category_id, adress, lat, lng) {
   );
 }
 
-function getRestaurant(id) {
-  var url = restaurantsUrl + '/' + id;
-
-  var restaurant;
-}
-
 function getRevieRestaurantReviews(id) {
   var url = restaurantsUrl + '/' + id + '/reviews';
-  var reviews;
+  var reviews = [];
   inizializeRequest(
     url,
     {},

@@ -2,6 +2,8 @@ function returnResponseForCode(response) {
   switch (response.status) {
     case 400:
       return 'Bledne dane' + response.responseText;
+    case 401:
+      return 'Zaloguj sie ponownie';
     case 403:
       localStorage.removeItem('auth_token');
       localStorage.removeItem('email');

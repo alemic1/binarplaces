@@ -30,7 +30,7 @@ function singUpUser(email, password, confirmPassword, userName) {
 }
 
 function getLoggedUser() {
-  var loggedUser;
+  var loggedUser = {};
   inizializeRequest(
     loggedUserUrl,
     {},

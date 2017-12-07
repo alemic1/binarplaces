@@ -62,9 +62,21 @@ function createModal(restaurant) {
         '</td><td class="deleteEdit"></td></tr>'
     );
     user = getLoggedUser();
-    console.log(user);
     if (user.name == rate.username) {
-      $('.deleteEdit').html('<button>EDIT</button><button>DELETE</button>');
+      $('.deleteEdit').html(
+        '<span class="glyphicon glyphicon-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Edytuj"></span><span class="glyphicon glyphicon-remove" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Usuń"></span>'
+      );
+
+      var $editRate = $('.glyphicon-pencil');
+      var $deleteRate = $('.glyphicon-remove');
+
+      $deleteRate.on('click', function() {
+        var popUp = new $.Popup();
+        popUp.open(
+          `<h1>Chcesz usunac te recenzje?</h1><button type="button" class="btn btn-danger">Usun</button><button type="button" class="btn btn-primary">Nie Usuwaj</button>`,
+          'html'
+        );
+      });
     }
   });
 }

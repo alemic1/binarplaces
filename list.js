@@ -26,6 +26,7 @@ function showCategory() {
           restaurant.rate +
           '"><select class="stars" ><option value="1">1</option> <option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div></td></tr>'
       );
+
       initializeStarRating(restaurant.rate);
       $('.stars' + restaurant.id).on('click', function() {
         rates = getRevieRestaurantReviews(restaurant.id);
@@ -41,6 +42,7 @@ function createModal(restaurant) {
   $('.ratesModalBody').html(
     '<table class="table"><thead><tr><th>Uzytkownik</th><th>Ocena</th><th>Data</th><th>tres</th></tr></thead><tbody class="rate"></tbody></table>'
   );
+  $('.rate').sortable();
   $.each(rates, function(index, rate) {
     message = moment(rate.created_at).fromNow();
 

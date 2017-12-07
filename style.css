@@ -3,37 +3,4 @@
 @import 'galery.css';
 @import 'preloader.css';
 @import 'modal.css';
-@media (min-width: 1151px) {
-  .navbarLinks {
-    display: block !important;
-  }
-  .dropdownTop5 {
-    display: none !important;
-  }
-}
-
-@media (max-width: 1150px) {
-  .navbarLinks {
-    display: none !important;
-  }
-  .dropdownTop5 {
-    display: block !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbarLinks {
-    display: block !important;
-  }
-  .dropdownTop5 {
-    display: none !important;
-  }
-}
-
-.main {
-  display: none;
-}
-
-.bodyApp {
-  display: none;
-}
+@import 'responsibility.css';

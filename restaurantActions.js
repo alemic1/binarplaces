@@ -15,8 +15,7 @@ function getAllRestaurants() {
   return responseTestaurants;
 }
 
-function addNewRestaurant(name, category_id, adress, lat, lng) {
-  console.log(localStorage.auth_token), console.log(localStorage.email);
+function postNewRestaurant(name, category_id, adress, lat, lng) {
   var date;
   if (lat != undefined && lng != undefined) {
     date = {
@@ -63,9 +62,7 @@ function getRevieRestaurantReviews(id) {
     function(response) {
       reviews = response;
     },
-    function(response) {
-      console.log(response);
-    }
+    function(response) {}
   );
 
   return reviews;

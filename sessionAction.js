@@ -25,10 +25,7 @@ function singUpUser(email, password, confirmPassword, userName) {
     'test',
     'POST',
     [],
-    function(response) {},
-    function(response) {
-      console.log('blad rejestracji');
-    }
+    function(response) {}
   );
 }
 

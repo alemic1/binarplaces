@@ -43,8 +43,7 @@ function addRestaurant() {
   });
 
   if ($addRestaurantModalForm.valid() && latlngSearchedMap != null) {
-    console.log(adressRestaurant);
-    addNewRestaurant(
+    postNewRestaurant(
       nameRestaurant,
       categoryRestaurant.id,
       adressRestaurant,

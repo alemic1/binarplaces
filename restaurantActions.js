@@ -15,20 +15,28 @@ function getAllRestaurants() {
   return responseTestaurants;
 }
 
-function addNewRestaurant(name, category_id, adress, lat, lng) {
-  console.log(localStorage.auth_token), console.log(localStorage.email);
-  var date;
+function addNewRestaurant(name, category_id, adress, lat, lng, photo) {
+  var date = {
+    name: name,
+    category_id: category_id,
+    address: adress,
+  };
+
   if (lat != undefined && lng != undefined) {
     date = {
-      name: name,
-      category_id: category_id,
-      address: adress,
+      ...date,
       lat: lat,
       lon: lng,
     };
-  } else {
-    date = {name: name, category_id: category_id, address: adress};
   }
+
+  if (photo != nul) {
+    date = {
+      ...date,
+      picture_url: photo,
+    };
+  }
+
   inizializeRequest(
     restaurantsUrl,
     date,

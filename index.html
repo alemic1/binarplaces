@@ -75,6 +75,7 @@
   <script src="preloader.js"></script>
   <script src="addRestaurant.js"></script>
   <script src="singUp.js"></script>
+  <script src="galery.js"></script>
 
   <div class="sk-fading-circle">
     <div class="sk-circle1 sk-circle"></div>
@@ -148,7 +149,7 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="galery">
               <div class="galery">
-                <a href="restauracja03.jpg" data-lightbox="image-1" data-title="RestaurantName"><img src="restauracja03.jpg" class="galery"></a>
+
 
               </div>
             </div>
@@ -310,7 +311,10 @@
                 <input id="submit" type="button" value="Znajdź na mapie" name="button">
               </div>
               <div id="searchMap" class="searchMap"></div>
-              <div class="messageErrorAddress"></div>
+              <label for="file">Zdjecie restauracji</label>
+              <input type="file" id="imgAddedRestaurant" name="imgAddedRestaurant" onchange="encodeImageFileAsURL()" value="-">
+              <div id="imgFile"></div>
+
 
             </div>
 

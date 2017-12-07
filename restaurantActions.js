@@ -78,3 +78,25 @@ function getRevieRestaurantReviews(id) {
 
   return reviews;
 }
+
+function addNewReview(id, rate, content) {
+  var url = restaurantsUrl + '/' + id + '/reviews';
+  var data = {
+    rate: rate,
+    content: content,
+  };
+  inizializeRequest(
+    url,
+    data,
+    'text',
+    'POST',
+    {
+      'X-USER-TOKEN': localStorage.auth_token,
+      'X-USER-EMAIL': localStorage.email,
+    },
+    function(response) {
+      location.reload();
+    },
+    function(response) {}
+  );
+}

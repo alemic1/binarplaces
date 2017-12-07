@@ -1,3 +1,5 @@
+var idRestaurantClicked;
+
 function initializeStarRating(val) {
   $('.stars').barrating({
     theme: 'fontawesome-stars-o',
@@ -29,7 +31,8 @@ function showCategory() {
 
       initializeStarRating(restaurant.rate);
       $('.stars' + restaurant.id).on('click', function() {
-        rates = getRevieRestaurantReviews(restaurant.id);
+        idRestaurantClicked = restaurant.id;
+        rates = getRevieRestaurantReviews(idRestaurantClicked);
         $('#myModal').modal('show');
         createModal(restaurant);
       });

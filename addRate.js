@@ -45,4 +45,10 @@ $(document).ready(function() {
       localStorage.email +
       '</p>'
   );
+
+  $('.sendReview').on('click', function() {
+    var rate = $('#rate').val();
+    var content = $('#contentRate').val();
+    addNewReview(idRestaurantClicked, rate, content);
+  });
 });

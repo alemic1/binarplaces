@@ -15,6 +15,7 @@ $.datepicker.setDefaults({
 });
 
 $(document).ready(function() {
+  var $userDetails = $('.userDetails');
   $('#addRateForm').validate({
     rules: {
       user: {
@@ -36,7 +37,7 @@ $(document).ready(function() {
     },
   });
 
-  $('.userDetails').append(
+  $userDetails.append(
     '<label for="user">Użytwkonik</label><input type="text" class="form-control" id="user" name="user" placeholder="Nazwa Uzytkowniak"><br><label for="email">Adres email</label><p class="form-control-static">' +
       localStorage.email +
       '</p>'

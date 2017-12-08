@@ -1,9 +1,11 @@
 function getAllRestaurants() {
-  var responseTestaurants;
+  var responseTestaurants = [];
   inizializeRequest(
     restaurantsUrl,
     {},
+    'json',
     'GET',
+    [],
     function(response) {
       responseTestaurants = response;
       restaurantsDownloaded = true;
@@ -13,51 +15,48 @@ function getAllRestaurants() {
   return responseTestaurants;
 }
 
-function addNewRestaurant(name, category_id, adress, lat, lng) {
+function postNewRestaurant(name, category_id, adress, lat, lng) {
   var date;
   if (lat != undefined && lng != undefined) {
     date = {
       name: name,
       category_id: category_id,
-      adress: adress,
+      address: adress,
       lat: lat,
-      lng: lng,
+      lon: lng,
     };
   } else {
-    date = {name: name, category_id: category_id, adress: adress};
+    date = {name: name, category_id: category_id, address: adress};
   }
   inizializeRequest(
     restaurantsUrl,
     date,
+    'text',
     'POST',
-    function(response) {
-      console.log(response);
+    {
+      'X-USER-TOKEN': localStorage.auth_token,
+      'X-USER-EMAIL': localStorage.email,
     },
     function(response) {
-      console.log(response);
-    }
+      location.reload();
+    },
+    function(response) {}
   );
-}
-
-function getRestaurant(id) {
-  var url = restaurantsUrl + '/' + id;
-
-  var restaurant;
 }
 
 function getRevieRestaurantReviews(id) {
   var url = restaurantsUrl + '/' + id + '/reviews';
-  var reviews;
+  var reviews = [];
   inizializeRequest(
     url,
     {},
+    'json',
     'GET',
+    [],
     function(response) {
       reviews = response;
     },
-    function(response) {
-      console.log(response);
-    }
+    function(response) {}
   );
 
   return reviews;

@@ -3,14 +3,13 @@ function singInUser(email, password) {
     singInUrl,
     {email: email, password: password},
     'POST',
+    [],
     function(response) {
       localStorage.setItem('email', email);
-      localStorage.setItem('auth_token', response);
+      localStorage.setItem('auth_token', response.auth_token);
+      location.reload();
     },
-    function(response) {
-      alert('blad logowania');
-      console.log(response);
-    }
+    function(response) {}
   );
 }
 
@@ -20,26 +19,31 @@ function singUpUser(email, password, confirmPassword, userName) {
     {
       email: email,
       password: password,
-      confirmPassword: confirmPassword,
-      useName: userName,
+      password_confirmation: confirmPassword,
+      name: userName,
     },
+    'test',
     'POST',
-    function(response) {},
-    function(response) {
-      console.log('blad rejestracji');
-    }
+    [],
+    function(response) {}
   );
 }
 
 function getLoggedUser() {
-  var loggedUser;
+  var loggedUser = {};
   inizializeRequest(
     loggedUserUrl,
     {},
+    'json',
     'GET',
+    {
+      'X-USER-TOKEN': localStorage.auth_token,
+      'X-USER-EMAIL': localStorage.email,
+    },
     function(response) {
       loggedUser = response;
     },
     function(response) {}
   );
+  return loggedUser;
 }

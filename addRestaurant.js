@@ -33,6 +33,8 @@ $(document).ready(function() {
 });
 
 function addRestaurant() {
+  var $addRestaurantModalForm = $('#addRestaurantModalForm');
+
   var nameRestaurant = $('#name').val();
   var adressRestaurant = $('#address').val();
   var categoryIndex = $('#category').val();
@@ -40,12 +42,13 @@ function addRestaurant() {
     return category.id == categoryIndex;
   });
 
-  if (
-    categoryRestaurant != null &&
-    nameRestaurant != null &&
-    adressRestaurant != null &&
-    latlngSearchedMap.lat !== null
-  ) {
-    //addNewRestaurant(nameRestaurant,categoryRestaurant, adressRestaurant,latlngSearchedMap.lat,latlngSearchedMap.lng)
+  if ($addRestaurantModalForm.valid() && latlngSearchedMap != null) {
+    postNewRestaurant(
+      nameRestaurant,
+      categoryRestaurant.id,
+      adressRestaurant,
+      latlngSearchedMap.lat,
+      latlngSearchedMap.lng
+    );
   }
 }

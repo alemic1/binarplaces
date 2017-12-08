@@ -42,7 +42,6 @@
 
 
   <script src="errorsHttp.js"></script>
-
   <script src="variables.js"></script>
   <script src="dataAjax.js"></script>
   <script src="railsApi.js"></script>
@@ -75,6 +74,7 @@
   <script src="singIn.js"></script>
   <script src="preloader.js"></script>
   <script src="addRestaurant.js"></script>
+  <script src="singUp.js"></script>
 
   <div class="sk-fading-circle">
     <div class="sk-circle1 sk-circle"></div>
@@ -155,7 +155,7 @@
 
             <div role="tabpanel" class="tab-pane" id="map">
               <p> Mapa restauracji dla wybranej kategorii </p>
-              <div id="myMap" class="myMap"></div>
+              <div id="myMap" class="map"></div>
             </div>
           </div>
 
@@ -236,10 +236,10 @@
           <form id="singInForm">
             <div class="form-group">
               <label for="email">Adres email</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="email">
+              <input type="email" class="form-control" id="emailSingIn" name="email" placeholder="email">
               <br>
               <label for="date">Hasło</label>
-              <input type="text" class="form-control" id="password" name="password" placeholder="haslo">
+              <input type="password" class="form-control" id="passwordSingIn" name="password" placeholder="haslo">
             </div>
           </form>
         </div>
@@ -263,23 +263,23 @@
           <form id="singUpForm">
             <div class="form-group">
               <label for="user">Nazwa użytkownika</label>
-              <input type="text" class="form-control" id="user" name="user" placeholder="Nazwa Uzytkowniak">
+              <input type="text" class="form-control" id="userRegistration" name="user" placeholder="Nazwa Uzytkowniak">
               <br>
               <label for="email">Adres email</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="email">
+              <input type="email" class="form-control" id="emailRegistration" name="email" placeholder="email">
               <br>
-              <label for "date">Hasło</label>
-              <input type="text" class="form-control" id="password" name="password" placeholder="haslo">
+              <label for "password">Hasło</label>
+              <input type="password" class="form-control" id="passwordRegistration" name="password" placeholder="haslo">
               <br>
-              <label for "date">Potwierdź hasło</label>
-              <input type="text" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="potwierdz haslo">
+              <label for "confirmPassword">Potwierdź hasło</label>
+              <input type="password" class="form-control" id="confirmPasswordRegistration" name="confirmPassword" placeholder="potwierdz haslo">
             </div>
 
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Wyślij</button>
+          <button type="button" class="btn btn-primary singUpSendButton">Wyślij</button>
         </div>
       </div>
     </div>
@@ -306,7 +306,7 @@
                 <input id="address" type="textbox" name="address">
                 <input id="submit" type="button" value="Znajdź na mapie" name="button">
               </div>
-              <div id="searchMap" class="searchMap"></div>
+              <div id="searchMap" class="map"></div>
               <div class="messageErrorAddress"></div>
 
             </div>

@@ -16,8 +16,8 @@ $(document).ready(function() {
 $(window).on('hashchange', function(e) {
   idChoosenCategory = splittedLocationHash();
   restaurantsToShow = inicializeRestaurantToShow();
-  showCategory();
-  initMap('myMap');
+  showCategory('myMap');
+  initMap();
 });
 
 function splittedLocationHash() {

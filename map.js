@@ -36,8 +36,8 @@ function createMarkers(map) {
 
         var marker = new google.maps.Marker({
           position: {
-            lat: parseFloat(restaurant.location.lat),
-            lng: parseFloat(restaurant.location.lon),
+            lat: parseFloat(restaurant.location.lon),
+            lng: parseFloat(restaurant.location.lat),
           },
           map: map,
           title: `${restaurant.name}`,

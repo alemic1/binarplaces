@@ -78,5 +78,6 @@ function encodeImageFileAsURL() {
 function decodeImageBase64(base64, imgId) {
   var newImage = document.createElement('img');
   newImage.src = base64;
-  $('#' + imgId).append(newImage.outerHTML);
+  newImage.className = 'galeryImg';
+  $('#' + imgId).html(newImage.outerHTML);
 }

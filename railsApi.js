@@ -1,6 +1,13 @@
-function inizializeRequest(url, data,dataType, typeget, headers, successFunction) {
+function inizializeRequest(
+  url,
+  data,
+  dataType,
+  typeget,
+  headers,
+  successFunction
+) {
   $.ajax({
-    url: `http://binar-taste-api-staging.builder01.binarapps.com/api/v1${url}`,
+    url: `http://binar-taste-api-staging.builder01.binarapps.com${url}`,
     data: data,
     type: typeget,
     crossDomain: true,

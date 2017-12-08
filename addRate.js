@@ -38,19 +38,23 @@ $(document).ready(function() {
 
   if (localStorage.email != null) {
     user = getLoggedUser();
+    if (user != null) {
+      $('.userDetails').append(
+        '<label for="user">Użytwkonik</label><p class="form-control-static">' +
+          user !=
+        null
+          ? user.name
+          : '' +
+            '</p><br><label for="email">Adres email</label><p class="form-control-static">' +
+            localStorage.email +
+            '</p>'
+      );
 
-    $('.userDetails').append(
-      '<label for="user">Użytwkonik</label><p class="form-control-static">' +
-        user.name +
-        '</p><br><label for="email">Adres email</label><p class="form-control-static">' +
-        localStorage.email +
-        '</p>'
-    );
-
-    $('.sendReview').on('click', function() {
-      var rate = $('#rate').val();
-      var content = $('#contentRate').val();
-      addNewReview(idRestaurantClicked, rate, content);
-    });
+      $('.sendReview').on('click', function() {
+        var rate = $('#rate').val();
+        var content = $('#contentRate').val();
+        addNewReview(idRestaurantClicked, rate, content);
+      });
+    }
   }
 });

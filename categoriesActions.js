@@ -1,5 +1,5 @@
 function getAllCategories() {
-  var categoriesResponse;
+  var categoriesResponse = [];
   inizializeRequest(
     categoriesUrl,
     {},

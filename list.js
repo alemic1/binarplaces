@@ -22,7 +22,7 @@ function showCategory() {
           restaurant.name +
           '</td><td>' +
           restaurant.location.address +
-          '</td><td><div class="stars1 stars' +
+          '</td><td><div class="stars' +
           restaurant.id +
           '" data-toggle="tooltip" data-placement="left" title="' +
           restaurant.rate +
@@ -61,22 +61,5 @@ function createModal(restaurant) {
         rate.content +
         '</td><td class="deleteEdit"></td></tr>'
     );
-    user = getLoggedUser();
-    if (user.name == rate.username) {
-      $('.deleteEdit').html(
-        '<span class="glyphicon glyphicon-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Edytuj"></span><span class="glyphicon glyphicon-remove" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Usuń"></span>'
-      );
-
-      var $editRate = $('.glyphicon-pencil');
-      var $deleteRate = $('.glyphicon-remove');
-
-      $deleteRate.on('click', function() {
-        var popUp = new $.Popup();
-        popUp.open(
-          `<h1>Chcesz usunac te recenzje?</h1><button type="button" class="btn btn-danger">Usun</button><button type="button" class="btn btn-primary">Nie Usuwaj</button>`,
-          'html'
-        );
-      });
-    }
   });
 }

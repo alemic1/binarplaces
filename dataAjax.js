@@ -1,9 +1,9 @@
-var singUPUrl = '/user/sign_up'; //params: email, name, password, password_confirmed
-var singInUrl = '/user/sign_in'; //params: email, password; response: {auth_token: “827h348uh2”, valid_until: 1511427170}
-var loggedUserUrl = '/user'; // response: {id: 1, name: “Donald Trump”, email: “” }
-var categoriesUrl = '/categories'; //response: [{id: 1, name: ‘kuchnia chińska’, count: <ilośc lokali>}, ...]
+var singUPUrl = '/api/v1/user/sign_up'; //params: email, name, password, password_confirmed
+var singInUrl = '/api/v1/user/sign_in'; //params: email, password; response: {auth_token: “827h348uh2”, valid_until: 1511427170}
+var loggedUserUrl = '/api/v1/user'; // response: {id: 1, name: “Donald Trump”, email: “” }
+var categoriesUrl = '/api/v1/categories'; //response: [{id: 1, name: ‘kuchnia chińska’, count: <ilośc lokali>}, ...]
 var restaurantsUrl =
-  '/places'; /*
+  '/api/v1/places'; /*
 params: lat (opcional), lng (opcional), max_distance (opcional) 
 all or none
 

@@ -15,6 +15,7 @@ $.datepicker.setDefaults({
 });
 
 $(document).ready(function() {
+  var $userDetails = $('.userDetails');
   $('#addRateForm').validate({
     rules: {
       user: {
